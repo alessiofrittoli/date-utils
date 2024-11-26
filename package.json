@@ -49,11 +49,6 @@
 			"import": "./dist/common.mjs",
 			"require": "./dist/common.js"
 		},
-		"./relative": {
-			"types": "./dist/relative.d.ts",
-			"import": "./dist/relative.mjs",
-			"require": "./dist/relative.js"
-		},
 		"./utils": {
 			"types": "./dist/utils.d.ts",
 			"import": "./dist/utils.mjs",

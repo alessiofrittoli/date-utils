@@ -25,26 +25,27 @@ const DIVISIONS: Division[] = [
  * @usage ```ts
  * const currentDate = new Date()
  * 
- * formatTimeAgo( new Date().setMonth( currentDate.getMonth() - 2 ) )
+ * formatRelativeTime( new Date().setMonth( currentDate.getMonth() - 2 ) )
  * // 2 months ago
- * formatTimeAgo( new Date().setDate( currentDate.getDate() - 1 ) )
+ * formatRelativeTime( new Date().setDate( currentDate.getDate() - 1 ) )
  * // yesterday
- * formatTimeAgo( new Date().setDate( currentDate.getDate() - 9 ) )
+ * formatRelativeTime( new Date().setDate( currentDate.getDate() - 9 ) )
  * // last week
  * ```
  * 
  * @returns	The relative time formatted date string.
  */
-export const formatTimeAgo = (
-	date		: string | number | Date,
-	locales?	: string | string[]
+const formatRelativeTime = (
+	date		: string | number | Date = new Date(),
+	locales?	: string | string[],
+	options		: Intl.RelativeTimeFormatOptions = {
+		numeric: 'auto',
+	},
 ) => {
 
-	date = date ? new Date( date ) : new Date()
+	date = new Date( date )
 
-	const formatter = new Intl.RelativeTimeFormat( locales, {
-		numeric: 'auto',
-	} )
+	const formatter = new Intl.RelativeTimeFormat( locales, options )
 
 	let duration = ( date.getTime() - new Date().getTime() ) / 1000
 
@@ -56,3 +57,5 @@ export const formatTimeAgo = (
 		duration /= division!.amount
 	}
 }
+
+export default formatRelativeTime
