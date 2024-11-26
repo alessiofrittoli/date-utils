@@ -350,7 +350,7 @@ export const OTHERS_TIMEZONES = [ 'UTC' ] as const
 
 
 /** Timezone identifiers list. */
-const TIMEZONE_IDENTIFIERS = {
+export const TIMEZONE_IDENTIFIERS = {
 	/** Africa Timezone identifiers list. */
 	africa: AFRICA_TIMEZONES,
 	/** America Timezone identifiers list. */
@@ -368,6 +368,3 @@ const TIMEZONE_IDENTIFIERS = {
 	/** Other Timezone identifiers list. */
 	others: OTHERS_TIMEZONES,
 } as const
-
-
-export default TIMEZONE_IDENTIFIERS

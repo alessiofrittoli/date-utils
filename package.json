@@ -1,6 +1,6 @@
 {
 	"name": "@alessiofrittoli/date-utils",
-	"version": "0.1.1",
+	"version": "1.0.0",
 	"description": "Lightweight TypeScript date utility functions library",
 	"author": {
 		"name": "Alessio Frittoli",
@@ -34,10 +34,20 @@
 			"import": "./dist/index.mjs",
 			"require": "./dist/index.js"
 		},
-		"./format/*": {
-			"types": "./dist/format/*.d.ts",
-			"import": "./dist/format/*.mjs",
-			"require": "./dist/format/*.js"
+		"./format": {
+			"types": "./dist/format/index.d.ts",
+			"import": "./dist/format/index.mjs",
+			"require": "./dist/format/index.js"
+		},
+		"./format/formatDate": {
+			"types": "./dist/format/formatDate.d.ts",
+			"import": "./dist/format/formatDate.mjs",
+			"require": "./dist/format/formatDate.js"
+		},
+		"./format/formatRelativeTime": {
+			"types": "./dist/format/formatRelativeTime.d.ts",
+			"import": "./dist/format/formatRelativeTime.mjs",
+			"require": "./dist/format/formatRelativeTime.js"
 		},
 		"./timezones/*": {
 			"types": "./dist/timezones/*.d.ts",
@@ -66,17 +76,17 @@
 		"@eslint/js": "^9.15.0",
 		"@jest/globals": "^29.7.0",
 		"@types/jest": "^29.5.14",
-		"@types/node": "^22.9.3",
+		"@types/node": "^22.10.0",
 		"eslint": "^9.15.0",
 		"globals": "^15.12.0",
 		"jest": "^29.7.0",
 		"ts-jest": "^29.2.5",
 		"tsup": "^8.3.5",
-		"typescript": "^5.6.3",
-		"typescript-eslint": "^8.15.0"
+		"typescript": "^5.7.2",
+		"typescript-eslint": "^8.16.0"
 	},
 	"dependencies": {
 		"@alessiofrittoli/math-utils": "^0.2.1",
-		"@alessiofrittoli/type-utils": "^0.1.1"
+		"@alessiofrittoli/type-utils": "^0.1.2"
 	}
 }
