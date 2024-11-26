@@ -1,6 +1,7 @@
 import { InSeconds } from '@/common'
 import { formatLocaleDate, secondsToUnit } from '@/format'
 import formatDate from '@/format/formatDate'
+import formatRelativeTime from '@/format/relative'
 
 describe( 'formatDate', () => {
 
@@ -135,4 +136,51 @@ describe( 'formatLocaleDate', () => {
 				timeZone: 'America/New_York',
 			} )
 		).toBe( 'April 20 at 10:20' )
+} )
+
+describe( 'formatRelativeTime', () => {
+
+	it( 'formats relative time', () => {
+
+		expect( formatRelativeTime() ).toBe( 'now' )
+
+	} )
+
+
+	it( 'formats past dates', () => {
+		const currentDate = new Date()
+
+		expect( formatRelativeTime(
+			new Date().setMonth( currentDate.getMonth() - 2 )
+		) ).toBe( '2 months ago' )
+	} )
+
+
+	it( 'formats future dates', () => {
+		const currentDate = new Date()
+
+		expect( formatRelativeTime(
+			new Date().setHours( currentDate.getHours() + 2 )
+		) ).toBe( 'in 2 hours' )
+	} )
+	
+	
+	it( 'formats dates with a custom locale', () => {
+		const currentDate = new Date()
+	
+		expect( formatRelativeTime(
+			new Date().setDate( currentDate.getDate() - 1 ), 'it-IT'
+		) ).toBe( 'ieri' )
+	} )
+
+
+	it( 'formats dates with a custom options', () => {
+		const currentDate	= new Date()
+		const yesterdayDate	= new Date().setDate( currentDate.getDate() - 1 )
+
+		expect(
+			formatRelativeTime( yesterdayDate, undefined, { numeric: 'always' } )
+		).toBe( '1 day ago' )
+	} )
+
 } )
