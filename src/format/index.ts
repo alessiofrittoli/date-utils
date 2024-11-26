@@ -1,12 +1,12 @@
 import { InSeconds } from '../common'
 
-export type SecondsToUnitReturn = {
+export type SecondsToUnitReturn<TSkipWeeks extends boolean = false> = {
 	/** Years in given time. */
 	years: number
 	/** Months in given time. */
 	months: number
 	/** Weeks in given time. */
-	weeks: number
+	weeks: TSkipWeeks extends false ? number : null
 	/** Days in given time. */
 	days: number
 	/** Hours in given time. */
@@ -17,6 +17,7 @@ export type SecondsToUnitReturn = {
 	seconds: number
 	/** Milliseconds in given time. */
 	milliseconds: number
+	microseconds: number
 }
 
 
@@ -28,10 +29,10 @@ export type SecondsToUnitReturn = {
  * @param	time	The number of seconds to be processed.
  * @returns			An object containing the amount of time for each unit.
  */
-export const secondsToUnit = (
+export const secondsToUnit = <TSkipWeeks extends boolean = false>(
 	time		: number,
-	skipWeeks?	: boolean,
-): SecondsToUnitReturn => {
+	skipWeeks	: TSkipWeeks = false as TSkipWeeks,
+): SecondsToUnitReturn<TSkipWeeks> => {
 
 	const isPast = time < 0
 	if ( isPast ) time = time * -1
@@ -44,7 +45,7 @@ export const secondsToUnit = (
 
 	const	years	= Math.floor( time / yearInSeconds ),
 			months	= Math.floor( ( time % yearInSeconds ) / monthInSeconds ),
-			weeks	= skipWeeks ? 0 : Math.floor( ( ( time % yearInSeconds ) % monthInSeconds ) / weekInSeconds ),
+			weeks	= skipWeeks ? null : Math.floor( ( ( time % yearInSeconds ) % monthInSeconds ) / weekInSeconds ),
 			days	= (
 				skipWeeks
 					? Math.floor( ( ( time % yearInSeconds ) % monthInSeconds ) / dayInSeconds )
@@ -53,18 +54,19 @@ export const secondsToUnit = (
 			hours	= Math.floor( ( ( time % yearInSeconds ) % dayInSeconds ) / hourInSeconds ),
 			minutes	= Math.floor( ( ( ( time % yearInSeconds ) % dayInSeconds ) % hourInSeconds ) / 60 ),
 			seconds		= Math.floor( ( ( ( time % yearInSeconds ) % dayInSeconds ) % hourInSeconds ) % 60 ),
-			milliseconds= Math.floor( ( ( ( ( time % yearInSeconds ) % dayInSeconds ) % hourInSeconds ) % 60 ) * 1000 % 1000 );
+			milliseconds= Math.floor( ( ( ( ( time % yearInSeconds ) % dayInSeconds ) % hourInSeconds ) % 60 ) * 1000 % 1000 ),
+			microseconds= Math.floor( ( ( ( ( time % yearInSeconds ) % dayInSeconds ) % hourInSeconds ) % 60 ) * 1_000_000 % 1000 );
 	
 	if ( isPast ) {
 		return {
-			years: years * -1, months: months * -1, weeks: weeks * -1, days: days * -1,
-			hours: hours * -1, minutes: minutes * -1, seconds: seconds * -1, milliseconds: milliseconds * -1,
-		}
+			years: years * -1, months: months * -1, weeks: weeks !== null ? weeks * -1 : null, days: days * -1,
+			hours: hours * -1, minutes: minutes * -1, seconds: seconds * -1, milliseconds: milliseconds * -1, microseconds: microseconds * -1,
+		} as SecondsToUnitReturn<TSkipWeeks>
 	}
 	return {
 		years, months, weeks, days,
-		hours, minutes, seconds, milliseconds,
-	}
+		hours, minutes, seconds, milliseconds, microseconds
+	} as SecondsToUnitReturn<TSkipWeeks>
 	
 }
 
