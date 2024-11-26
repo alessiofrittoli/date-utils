@@ -1,6 +1,6 @@
 {
 	"name": "@alessiofrittoli/date-utils",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"description": "Lightweight TypeScript date utility functions library",
 	"author": {
 		"name": "Alessio Frittoli",
@@ -63,7 +63,6 @@
 		"test:ci": "jest --ci --verbose"
 	},
 	"devDependencies": {
-		"@alessiofrittoli/type-utils": "^0.1.1",
 		"@eslint/js": "^9.15.0",
 		"@jest/globals": "^29.7.0",
 		"@types/jest": "^29.5.14",
@@ -77,6 +76,7 @@
 		"typescript-eslint": "^8.15.0"
 	},
 	"dependencies": {
-		"@alessiofrittoli/math-utils": "^0.2.1"
+		"@alessiofrittoli/math-utils": "^0.2.1",
+		"@alessiofrittoli/type-utils": "^0.1.1"
 	}
 }
