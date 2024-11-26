@@ -1,6 +1,6 @@
 {
 	"name": "@alessiofrittoli/date-utils",
-	"version": "0.1.1",
+	"version": "1.0.0",
 	"description": "Lightweight TypeScript date utility functions library",
 	"author": {
 		"name": "Alessio Frittoli",
@@ -34,10 +34,20 @@
 			"import": "./dist/index.mjs",
 			"require": "./dist/index.js"
 		},
-		"./format/*": {
-			"types": "./dist/format/*.d.ts",
-			"import": "./dist/format/*.mjs",
-			"require": "./dist/format/*.js"
+		"./format": {
+			"types": "./dist/format/index.d.ts",
+			"import": "./dist/format/index.mjs",
+			"require": "./dist/format/index.js"
+		},
+		"./format/formatDate": {
+			"types": "./dist/format/formatDate.d.ts",
+			"import": "./dist/format/formatDate.mjs",
+			"require": "./dist/format/formatDate.js"
+		},
+		"./format/formatRelativeTime": {
+			"types": "./dist/format/formatRelativeTime.d.ts",
+			"import": "./dist/format/formatRelativeTime.mjs",
+			"require": "./dist/format/formatRelativeTime.js"
 		},
 		"./timezones/*": {
 			"types": "./dist/timezones/*.d.ts",
