@@ -1,13 +1,29 @@
+/**
+ * Provides pre-defined constants for common time durations in seconds.
+ * 
+ */
 export enum InSeconds
 {
-	_1M		= 1 * 60,
-	_10M	= 10 * 60,
-	_30M	= 30 * 60,
-	_1Hour	= 1 * 60 * 60,
-	_1Day	= 1 * 24 * 60 * 60,
-	_1Week	= 1 * 7 * 24 * 60 * 60,
-	_1Month	= 30 * 24 * 60 * 60,
-	_1Year	= 365 * 24 * 60 * 60,
+	/** One millisecond in seconds. */
+	_1ms = 1 * 0.001,
+	/** One microsecond in seconds. */
+	_1us = 1 * 0.000001,
+	/** One minute in seconds. */
+	_1M = 1 * 60,
+	/** Ten minutes in seconds. */
+	_10M = 10 * 60,
+	/** Tirty minutes in seconds. */
+	_30M = 30 * 60,
+	/** One hour in seconds. */
+	_1Hour = 1 * 60 * 60,
+	/** One day in seconds. */
+	_1Day = 1 * 24 * 60 * 60,
+	/** One week in seconds. */
+	_1Week = 1 * 7 * 24 * 60 * 60,
+	/** One month in seconds. */
+	_1Month = 30 * 24 * 60 * 60,
+	/** One year in seconds. */
+	_1Year = 365 * 24 * 60 * 60,
 }
 
 
