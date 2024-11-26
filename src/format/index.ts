@@ -1,4 +1,5 @@
 import { InSeconds } from '../common'
+import type Timezone from '@/timezones/types'
 
 export type SecondsToUnitReturn<TSkipWeeks extends boolean = false> = {
 	/** Years in given time. */
@@ -80,15 +81,14 @@ export const secondsToUnit = <TSkipWeeks extends boolean = false>(
  * @returns			An object containing the Date object and the localized time string based on the given locale.
  */
 export const formatLocaleDate = (
-	date		: string | number | Date = new Date(),
-	locale?		: Intl.LocalesArgument,
-	options?	: Intl.DateTimeFormatOptions
+	date	: string | number | Date = new Date(),
+	locale?	: Intl.LocalesArgument,
+	options	: Intl.DateTimeFormatOptions & { timeZone?: Timezone } = {
+		day		: 'numeric',
+		month	: 'long',
+		year	: 'numeric',
+	}
 ) => (
 	new Date( date )
-		.toLocaleString( locale, {
-			day		: 'numeric',
-			month	: 'long',
-			year	: 'numeric',
-			...options,
-		} )
+		.toLocaleString( locale, options )
 )

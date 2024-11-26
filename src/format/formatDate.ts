@@ -85,7 +85,7 @@ import {
  */
 const formatDate = (
 	_date		: string | number | Date = new Date(),
-	format?		: string | Intl.DateTimeFormatOptions,
+	format?		: string | ( Intl.DateTimeFormatOptions & { timeZone?: Timezone } ),
 	locales?	: Intl.LocalesArgument,
 	_timeZone?	: Timezone,
 ) => {
@@ -101,7 +101,6 @@ const formatDate = (
 	}
 
 	if ( typeof format === 'object' ) {
-		format.timeZone ||= timeZone
 		return (
 			new Intl.DateTimeFormat( locales, format )
 				.format( date )
