@@ -11,6 +11,8 @@ Everything is exported from the root of this library but specific paths can be u
 ### Table of Contents
 
 - [Getting started](#getting-started)
+- What's inside
+	- [Common utilities](https://github.com/alessiofrittoli/date-utils/blob/master/docs/common/README.md)
 - [ESLint](#eslint)
 - [Jest](#jest)
 - [Security](#security)
