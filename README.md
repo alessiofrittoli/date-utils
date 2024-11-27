@@ -13,6 +13,7 @@ Everything is exported from the root of this library but specific paths can be u
 - [Getting started](#getting-started)
 - What's inside
 	- [Common utilities](https://github.com/alessiofrittoli/date-utils/blob/master/docs/common/README.md)
+	- [Formatting functions](https://github.com/alessiofrittoli/date-utils/blob/master/docs/format/README.md)
 - [ESLint](#eslint)
 - [Jest](#jest)
 - [Security](#security)
