@@ -252,7 +252,7 @@ This corresponds to 3 years, 2 months, 1 week, and 1 day, with no remaining hour
 ```ts
 import { secondsToUnit } from '@alessiofrittoli/date-utils'
 // or
-import secondsToUnit from '@alessiofrittoli/date-utils/format'
+import { secondsToUnit } from '@alessiofrittoli/date-utils/format'
 
 console.log( secondsToUnit( 100483200 ) )
 // Outputs: { years: 3, months: 2, weeks: 1, days: 1, hours: 0, minutes: 0, seconds: 0, milliseconds: 0, microseconds: 0 }
@@ -263,7 +263,7 @@ console.log( secondsToUnit( 100483200 ) )
 ```ts
 import { secondsToUnit } from '@alessiofrittoli/date-utils'
 // or
-import secondsToUnit from '@alessiofrittoli/date-utils/format'
+import { secondsToUnit } from '@alessiofrittoli/date-utils/format'
 
 console.log( secondsToUnit( 100483200, true ) )
 // Outputs: { years: 3, months: 2, weeks: null, days: 8, hours: 0, minutes: 0, seconds: 0, milliseconds: 0, microseconds: 0 }
@@ -274,7 +274,7 @@ console.log( secondsToUnit( 100483200, true ) )
 ```ts
 import { secondsToUnit } from '@alessiofrittoli/date-utils'
 // or
-import secondsToUnit from '@alessiofrittoli/date-utils/format'
+import { secondsToUnit } from '@alessiofrittoli/date-utils/format'
 
 console.log( secondsToUnit( 0.123456 ) )
 // Outputs: { years: 0, months: 0, weeks: 0, days: 0, hours: 0, minutes: 0, seconds: 0, milliseconds: 123, microseconds: 456 }
@@ -285,7 +285,7 @@ console.log( secondsToUnit( 0.123456 ) )
 ```ts
 import { secondsToUnit } from '@alessiofrittoli/date-utils'
 // or
-import secondsToUnit from '@alessiofrittoli/date-utils/format'
+import { secondsToUnit } from '@alessiofrittoli/date-utils/format'
 
 console.log( secondsToUnit( -10000 ) )
 // Outputs: { years: 0, months: 0, weeks: 0, days: 0, hours: -2, minutes: -46, seconds: -40, milliseconds: 0, microseconds: 0 }
@@ -332,7 +332,7 @@ The function returns a formatted date string based on the given `locale` and `op
 ```ts
 import { formatLocaleDate } from '@alessiofrittoli/date-utils'
 // or
-import formatLocaleDate from '@alessiofrittoli/date-utils/format'
+import { formatLocaleDate } from '@alessiofrittoli/date-utils/format'
 
 console.log( formatLocaleDate() )
 // Outputs: "November 26, 2024" (depending on the current locale)
@@ -343,7 +343,7 @@ console.log( formatLocaleDate() )
 ```ts
 import { formatLocaleDate } from '@alessiofrittoli/date-utils'
 // or
-import formatLocaleDate from '@alessiofrittoli/date-utils/format'
+import { formatLocaleDate } from '@alessiofrittoli/date-utils/format'
 
 console.log( formatLocaleDate( new Date(), 'en-US' ) )
 // Outputs: "November 26, 2024"
@@ -354,7 +354,7 @@ console.log( formatLocaleDate( new Date(), 'en-US' ) )
 ```ts
 import { formatLocaleDate } from '@alessiofrittoli/date-utils'
 // or
-import formatLocaleDate from '@alessiofrittoli/date-utils/format'
+import { formatLocaleDate } from '@alessiofrittoli/date-utils/format'
 
 console.log( formatLocaleDate( new Date(), 'en-US', {
 	weekday	: 'long',
@@ -369,7 +369,7 @@ console.log( formatLocaleDate( new Date(), 'en-US', {
 ```ts
 import { formatLocaleDate } from '@alessiofrittoli/date-utils'
 // or
-import formatLocaleDate from '@alessiofrittoli/date-utils/format'
+import { formatLocaleDate } from '@alessiofrittoli/date-utils/format'
 
 console.log( formatLocaleDate( new Date( '2024-11-25T09:30:00.000Z' ), 'en-US', {
 	weekday		: 'long',
