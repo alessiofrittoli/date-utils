@@ -1,3 +1,10 @@
+const env = process.env.NODE_ENV
+
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+require( 'dotenv' )
+	.config( { path: [ `.env.${ env }`, '.env.local', '.env' ] } )
+
+
 /**
  * Initial file generated with `npx ts-jest config:init`
  * 
