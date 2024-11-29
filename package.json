@@ -87,7 +87,7 @@
 		"typescript-eslint": "^8.16.0"
 	},
 	"dependencies": {
-		"@alessiofrittoli/math-utils": "^0.2.1",
+		"@alessiofrittoli/math-utils": "^0.3.0",
 		"@alessiofrittoli/type-utils": "^0.1.2"
 	}
 }
