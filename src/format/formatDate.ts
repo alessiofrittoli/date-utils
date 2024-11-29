@@ -88,7 +88,7 @@ const formatDate = (
 	format?		: string | ( Intl.DateTimeFormatOptions & { timeZone?: Timezone } ),
 	locales?	: Intl.LocalesArgument,
 	_timeZone?	: Timezone,
-) => {
+): string => {
 
 	const date		= new Date( _date )
 	const timeZone	= _timeZone as string
@@ -102,7 +102,7 @@ const formatDate = (
 
 	if ( typeof format === 'object' ) {
 		return (
-			new Intl.DateTimeFormat( locales, format )
+			new Intl.DateTimeFormat( locales, { ...format, timeZone: format.timeZone || timeZone } )
 				.format( date )
 		)
 	}
@@ -141,7 +141,7 @@ const formatDate = (
 					return getDayOfYear( date )
 				case 'b':
 					// The day period
-					return new Intl.DateTimeFormat( locales, { dayPeriod: 'long' } ).format( date )
+					return new Intl.DateTimeFormat( locales, { dayPeriod: 'long', timeZone } ).format( date )
 				
 				/** Week */
 				case 'W':
@@ -182,10 +182,16 @@ const formatDate = (
 				/** Time */
 				case 'a':
 					// Lowercase Ante Meridiem and Post Meridiem
-					return getAmOrPm( date ).toLowerCase()
+					{
+						const hours = Number( formatDate( date, 'G', locales, _timeZone ) )
+						return getAmOrPm( hours ).toLowerCase()
+					}
 				case 'A':
 					// Uppercase Ante Meridiem and Post Meridiem
-					return getAmOrPm( date )
+					{
+						const hours = Number( formatDate( date, 'G', locales, _timeZone ) )
+						return getAmOrPm( hours )
+					}
 				case 'B':
 					// Swatch Internet Time
 					return getSwatchBeat( date, 0 )
@@ -215,7 +221,9 @@ const formatDate = (
 				case 'i':
 					// Minutes with leading zeros
 					return (
-						date.getMinutes().toString().padStart( 2, '0' )
+						new Intl.DateTimeFormat( locales, { minute: 'numeric', hour12: false, timeZone } )
+							.format( date )
+							.padStart( 2, '0' )
 					)
 				case 's':
 					// Seconds with leading zeros
@@ -239,6 +247,7 @@ const formatDate = (
 					// Timezone identifier - long
 					return (
 						getTimezoneName( {
+							date			: date,
 							locale			: locales,
 							timeZone		: _timeZone,
 							timeZoneName	: 'long'
@@ -248,6 +257,7 @@ const formatDate = (
 					// Timezone identifier - long generic
 					return (
 						getTimezoneName( {
+							date			: date,
 							locale			: locales,
 							timeZone		: _timeZone,
 							timeZoneName	: 'longGeneric'
@@ -257,6 +267,7 @@ const formatDate = (
 					// Timezone identifier - long offset
 					return (
 						getTimezoneName( {
+							date			: date,
 							locale			: locales,
 							timeZone		: _timeZone,
 							timeZoneName	: 'longOffset'
@@ -266,6 +277,7 @@ const formatDate = (
 					// Timezone identifier - short
 					return (
 						getTimezoneName( {
+							date			: date,
 							locale			: locales,
 							timeZone		: _timeZone,
 							timeZoneName	: 'short'
@@ -275,6 +287,7 @@ const formatDate = (
 					// Timezone identifier - short generic
 					return (
 						getTimezoneName( {
+							date			: date,
 							locale			: locales,
 							timeZone		: _timeZone,
 							timeZoneName	: 'shortGeneric'
@@ -284,6 +297,7 @@ const formatDate = (
 					// Timezone identifier - short offset
 					return (
 						getTimezoneName( {
+							date			: date,
 							locale			: locales,
 							timeZone		: _timeZone,
 							timeZoneName	: 'shortOffset'
@@ -294,20 +308,20 @@ const formatDate = (
 					return Number( isDstObserved( date ) )
 				case 'O':
 					// Difference to Greenwich time (GMT) without colon between hours and minutes
-					return getTimezoneOffsetHm( date, '' )
+					return getTimezoneOffsetHm( _date, _timeZone, '' )
 				case 'P':
 					// Difference to Greenwich time (GMT) with colon between hours and minutes
-					return getTimezoneOffsetHm( date )
+					return getTimezoneOffsetHm( _date, _timeZone )
 				case 'p':
 					// The same as P, but returns Z instead of +00:00
-					{ const offset = getTimezoneOffsetHm( date )
+					{ const offset = getTimezoneOffsetHm( _date, _timeZone )
 					
 					return (
 						offset === '+00:00' ? 'Z' : offset
 					) }
 				case 'Z':
 					// Timezone offset in seconds. The offset for timezones west of UTC is always negative, and for those east of UTC is always positive
-					return getTimezoneOffsetH( date ) * 60 * 60
+					return getTimezoneOffsetH( _date, _timeZone ) * 60 * 60
 	
 				/** Full Datetime */
 				case 'c':
