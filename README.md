@@ -58,6 +58,18 @@ pnpm test
 pnpm test:ci
 ```
 
+You can eventually run specific suits like so:
+
+```bash
+pnpm test:common
+# or
+pnpm test:format
+# or
+pnpm test:timezones
+# or
+pnpm test:utils
+```
+
 ---
 
 ### Contributing
