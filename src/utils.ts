@@ -83,15 +83,12 @@ export const isLeapYear = ( year: number ) => (
 /**
  * Get Ante Meridiem or Post Meridiem based on the given Date time.
  * 
- * @param	date ( Optional ) The date string | milliseconds since UNIX epoch time | Date object. Default: `new Date()`.
- * @returns	'AM' or 'PM' based on the given Date time.
+ * @param	hours The date hours.
+ * @returns	'AM' or 'PM' based on the given hours.
  */
-export const getAmOrPm = ( date: string | number | Date = new Date() ) => {
-	const _date = new Date( date )
-	return (
-		_date.getHours() < 12 ? 'AM' : 'PM'
-	)
-}
+export const getAmOrPm = ( hours: number ) => (
+	hours < 12 ? 'AM' : 'PM'
+)
 
 
 /**

@@ -3,6 +3,7 @@ import { formatLocaleDate, secondsToUnit } from '@/format'
 import formatDate from '@/format/formatDate'
 import formatRelativeTime from '@/format/formatRelativeTime'
 
+
 describe( 'formatDate', () => {
 
 	it( 'formats a date with no parameters', () => {
@@ -15,11 +16,12 @@ describe( 'formatDate', () => {
 
 	it( 'formats a date with tokenized parameter', () => {
 		const date		= new Date( '2024-04-20T16:20:00.000Z' )
-		const tokens	= "d - j - D - J - l - w - N - S - z - b - W - m - n - M - F - E - t - L - Y - y - a - A - g - G - h - H - i - s - v - e - O - P - Z - c - r - U"
-		const expected	= "20 - 20 - Sat - S - Saturday - 6 - 6 - th - 111 - in the evening - 16 - 04 - 4 - Apr - April - A - 30 - 1 - 2024 - 24 - pm - PM - 6 - 18 - 06 - 18 - 20 - 00 - 0 - Europe/Rome - +0200 - +02:00 - 7200 - 2024-04-20T16:20:00.000Z - Sat Apr 20 2024 18:20:00 GMT+0200 (Central European Summer Time) - 1713630000"
+		const tokens	= "d - j - D - J - l - w - N - S - z - b - W - m - n - M - F - E - t - L - Y - y - a - A - g - G - h - H - i - s - v - e - O - P - Z - c - U"
+		const expected	= "20 - 20 - Sat - S - Saturday - 6 - 6 - th - 111 - in the evening - 16 - 04 - 4 - Apr - April - A - 30 - 1 - 2024 - 24 - pm - PM - 6 - 18 - 06 - 18 - 20 - 00 - 0 - Europe/Rome - +0200 - +02:00 - 7200 - 2024-04-20T16:20:00.000Z - 1713630000"
 		
 		expect( formatDate( date, tokens, 'en-US', 'Europe/Rome' ) )
 			.toBe( expected )
+		
 	} )
 
 
@@ -37,7 +39,7 @@ describe( 'formatDate', () => {
 
 	it( 'formats a date with the given Timezone', () => {
 
-		expect( formatDate( '2024-11-24T21:20:00Z', 'Y-m-d g.i A', 'en-US', 'America/New_York' ) )
+		expect( formatDate( '2024-11-24T21:20:00.000Z', 'Y-m-d g.i A', 'en-US', 'America/New_York' ) )
 			.toBe( '2024-11-24 4.20 PM' )
 
 	} )
@@ -119,6 +121,7 @@ describe( 'formatLocaleDate', () => {
 				hour	: '2-digit',
 				minute	: '2-digit',
 				hour12	: false,
+				timeZone: 'Europe/Rome',
 			} )
 		).toBe( '20 aprile alle ore 16:20' )
 
