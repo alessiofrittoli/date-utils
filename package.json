@@ -70,7 +70,11 @@
 		"build": "eslint && jest --ci --verbose && tsup",
 		"lint": "eslint",
 		"test": "jest --watchAll --verbose",
-		"test:ci": "jest --ci --verbose"
+		"test:ci": "jest --ci --verbose",
+		"test:common": "pnpm test common.test.ts",
+		"test:format": "pnpm test format.test.ts",
+		"test:timezones": "pnpm test timezones.test.ts",
+		"test:utils": "pnpm test utils.test.ts"
 	},
 	"devDependencies": {
 		"@eslint/js": "^9.15.0",
