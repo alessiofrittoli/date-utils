@@ -1,6 +1,6 @@
 # Date Utils 🗓️
 
-Version 1.0.0
+Version 1.0.1
 
 ## Lightweight TypeScript date utility functions library
 
