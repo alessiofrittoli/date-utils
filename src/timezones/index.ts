@@ -1,3 +1,4 @@
+import { pad } from '@alessiofrittoli/math-utils'
 import type Timezone from './types'
 
 /**
@@ -30,6 +31,36 @@ export const getCurrentMachineDateTimezoneOffsetH = ( date: string | number | Da
 
 
 /**
+ * Get Timezone offset Hours from a RFC 2822/RFC 5322 Date string.
+ * 
+ * @param date The RFC 2822/RFC 5322 formatted Date string.
+ * @returns The Date Timezone Offset in Hours.
+ */
+export const getTimezoneHFromGMTDateString = ( date: string ) => {
+
+	if ( date.endsWith( 'Z' ) ) return 0
+	
+	const match = (
+		date
+			.replace( /:/g, '' )
+			.match( /GMT([+-]\d{4})/ )
+	)
+	
+	if ( ! match?.[ 1 ] ) {
+		return getCurrentMachineDateTimezoneOffsetH( date )
+	}
+
+	const offset		= match[ 1 ]
+	const hours			= parseInt( offset.slice( 0, 3 ), 10 )
+	const minutes		= parseInt( offset.slice( 3 ), 10 )
+	const offsetSeconds	= ( hours * 60 * 60 ) + ( minutes * 60 )
+
+	return offsetSeconds / 60 / 60
+
+}
+
+
+/**
  * Get Date Timezone Offset in Hours.
  * 
  * Retrieve the Timezone Offset based on the given Date/Timezone identifier.
@@ -37,7 +68,8 @@ export const getCurrentMachineDateTimezoneOffsetH = ( date: string | number | Da
  * @param date		( Optional ) The date string (ISO or » RFC 2822/» RFC 5322) | milliseconds since UNIX epoch time | Date object.
  * @param timeZone	( Optional ) The Timezone identifier used to retrieve the Timezone Offset.\
  * 					This will be ignored if a » RFC 2822/» RFC 5322 formatted Date string is provided.
-
+ * @returns The Date Timezone Offset in Hours.
+ * 
  * @examples
  * - Today is 29.11.2024 - 11:00 and we are based in Europe/Rome\
  *     ( today » RFC 2822/» RFC 5322 Date string: "Fri Nov 29 2024 11:00:13 GMT+0100 (Central European Standard Time)" )
@@ -61,14 +93,17 @@ export const getCurrentMachineDateTimezoneOffsetH = ( date: string | number | Da
  * getTimezoneOffsetH( dateString, 'America/Los_Angeles' ) ) // Outputs: -8
  * ```
  */
-export const getTimezoneOffsetH = ( date?: string | number | Date, timeZone?: Timezone ) => {
+export const getTimezoneOffsetH = (
+	date?		: string | number | Date,
+	timeZone?	: Timezone,
+) => {
 
 
 	if ( ! timeZone ) {
 
 		return (
 			typeof date === 'string'
-				? getTimezoneHFromGMTDateString( date ) || getCurrentMachineDateTimezoneOffsetH( date )
+				? getTimezoneHFromGMTDateString( date )
 				: getCurrentMachineDateTimezoneOffsetH( date )
 		)
 
@@ -92,40 +127,11 @@ export const getTimezoneOffsetH = ( date?: string | number | Date, timeZone?: Ti
 
 
 /**
- * Get Timezone offset Hours from a Date string.
- * 
- * @param string The » RFC 2822/» RFC 5322 formatted Date string.
- * @returns 
- */
-export const getTimezoneHFromGMTDateString = ( string: string ) => {
-
-	const match = (
-		string
-			.replace( /:/g, '' )
-			.match( /GMT([+-]\d{4})/ )
-	)
-
-	if ( ! match?.[ 1 ] ) {
-		return 0
-	}
-
-	const offset		= match[ 1 ]
-	const hours			= parseInt( offset.slice( 0, 3 ), 10 )
-	const minutes		= parseInt( offset.slice( 3 ), 10 )
-	const offsetSeconds	= ( hours * 60 * 60 ) + ( minutes * 60 )
-
-	return offsetSeconds / 60 / 60
-
-}
-
-
-/**
  * Get Timezone Offset Hours and Minutes.
  * 
  * @param date		( Optional ) The date string | milliseconds since UNIX epoch time | Date object.
+ * @param timeZone	( Optional ) The Timezone identifier used to retrieve the Timezone Offset.
  * @param separator	( Optional ) The Timezone offset separator. Default: `:`.
- * 
- * @link [StackOverflow Thread#1091372](https://stackoverflow.com/questions/1091372/getting-the-clients-time-zone-and-offset-in-javascript#5114625)
  * 
  * @returns The formatted Timezone Offset.
  */
@@ -134,14 +140,6 @@ export const getTimezoneOffsetHm = (
 	timezone?	: Timezone,
 	separator	: string | false = ':',
 ) => {
-
-	const pad = ( number: number, length: number ) => {
-		let str = number.toString()		
-		while ( str.length < length ) {
-			str = '0' + str
-		}
-		return str
-	}
 	
 	const offset = -( getTimezoneOffsetH( date, timezone ) * 60 )
 
@@ -164,7 +162,7 @@ export const getTimezoneOffsetHm = (
 export const getTimezoneName = (
 	options?: {
 		date?		: string | number | Date,
-		locale?		: Intl.LocalesArgument | string | string[],
+		locale?		: Intl.LocalesArgument,
 		timeZone?	: Timezone,
 		timeZoneName?: Intl.DateTimeFormatOptions[ 'timeZoneName' ],
 	}
@@ -181,17 +179,21 @@ export const getTimezoneName = (
 /**
  * Get Daylight Saving Time Timezone offset.
  * 
- * @param	date ( Optional ) The date string | milliseconds since UNIX epoch time | Date object. Default: `new Date()`.
+ * @param	date		( Optional ) The date string | milliseconds since UNIX epoch time | Date object. Default: `new Date()`.
+ * @param	timeZone	( Optional ) The Timezone identifier used to retrieve the Timezone Offset.\
  * @returns	The Daylight Saving Time Timezone offset.
  */
-export const stdTimezoneOffset = ( date: string | number | Date = new Date() ) => {
+export const stdTimezoneOffset = (
+	date		: string | number | Date = new Date(),
+	timeZone?	: Timezone,
+) => {
 
 	const _date	= new Date( date )
 	const jan	= new Date( _date.getFullYear(), 0, 1 )
 	const jul	= new Date( _date.getFullYear(), 6, 1 )
 
 	return (
-		Math.max( jan.getTimezoneOffset(), jul.getTimezoneOffset() )
+		Math.max( ( getTimezoneOffsetH( jan, timeZone ) * -60 ), ( getTimezoneOffsetH( jul, timeZone ) * -60 ) )
 	)
 
 }
@@ -200,12 +202,13 @@ export const stdTimezoneOffset = ( date: string | number | Date = new Date() ) =
 /**
  * Check whether the given Date is in Daylight Saving Time or not.
  * 
- * @param	date ( Optional ) The date string | milliseconds since UNIX epoch time | Date object. Default: `new Date()`.
+ * @param	date		( Optional ) The date string | milliseconds since UNIX epoch time | Date object. Default: `new Date()`.
+ * @param	timeZone	( Optional ) The Timezone identifier used to retrieve the Timezone Offset.\
  * @returns	True if the given Date is in Daylight Saving Time, false otherwise.
  */
-export const isDstObserved = ( date: string | number | Date = new Date() ) => {
-	const _date	= new Date( date )
-	return (
-		_date.getTimezoneOffset() < stdTimezoneOffset( _date )
-	)
-}
+export const isDstObserved = (
+	date		: string | number | Date = new Date(),
+	timeZone?	: Timezone,
+) => (
+	( getTimezoneOffsetH( date, timeZone ) * -60 ) < stdTimezoneOffset( date, timeZone )
+)

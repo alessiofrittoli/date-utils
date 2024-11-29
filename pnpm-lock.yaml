@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@alessiofrittoli/math-utils':
-        specifier: ^0.2.1
-        version: 0.2.1
+        specifier: ^0.3.0
+        version: 0.3.0
       '@alessiofrittoli/type-utils':
         specifier: ^0.1.2
         version: 0.1.2
@@ -54,8 +54,8 @@ importers:
 
 packages:
 
-  '@alessiofrittoli/math-utils@0.2.1':
-    resolution: {integrity: sha512-Yfl9nyOTDmZG7Xxj1i11TPzLdLvAqOH6oegD6+gDhhOql4oe4/GfmYM8OwXSVXqaAMJpFy0tIcYN6rJJuDaaDg==}
+  '@alessiofrittoli/math-utils@0.3.0':
+    resolution: {integrity: sha512-u6mbLsRk2vfk52vA9aLsI9ttKjZZTVfCdHiwNK82WL/GvrRsw2sKyM+AcgkIqCKUevx9uNJw+k2VvUouSKGRAQ==}
 
   '@alessiofrittoli/type-utils@0.1.2':
     resolution: {integrity: sha512-K9p1d/OKLWRey0FGwlv8vtjMO3rThVmhSBnaVCzW7Asij0gBkUvoPCzTnTxYu9jjLiAiYyDE5Au2ZYa3xFSpIw==}
@@ -2015,7 +2015,7 @@ packages:
 
 snapshots:
 
-  '@alessiofrittoli/math-utils@0.2.1': {}
+  '@alessiofrittoli/math-utils@0.3.0': {}
 
   '@alessiofrittoli/type-utils@0.1.2': {}
 

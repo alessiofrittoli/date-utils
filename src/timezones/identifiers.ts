@@ -171,6 +171,7 @@ export const ASIA_TIMEZONES = [
 	'Asia/Beirut',
 	'Asia/Bishkek',
 	'Asia/Brunei',
+	'Asia/Calcutta',
 	'Asia/Chita',
 	'Asia/Colombo',
 	'Asia/Damascus',
