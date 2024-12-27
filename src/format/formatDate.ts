@@ -305,7 +305,7 @@ export const formatDate = (
 					)
 				case 'I':
 					// Whether or not the date is in Daylight Saving Time - 1 if it in DST, 0 otherwise
-					return Number( isDstObserved( date ) )
+					return Number( isDstObserved( date, _timeZone ) )
 				case 'O':
 					// Difference to Greenwich time (GMT) without colon between hours and minutes
 					return getTimezoneOffsetHm( _date, _timeZone, '' )
