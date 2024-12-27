@@ -109,6 +109,8 @@ export const getTimezoneOffsetH = (
 
 	}
 
+	if ( timeZone === 'UTC' ) return 0
+
 	return (
 		typeof date === 'string'
 			? getTimezoneHFromGMTDateString( date ) || getTimezoneHFromGMTDateString( getTimezoneName( {
