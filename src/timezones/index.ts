@@ -1,4 +1,4 @@
-import { pad } from '@alessiofrittoli/math-utils'
+import { padStart } from '@alessiofrittoli/math-utils'
 import type Timezone from './types'
 
 /**
@@ -145,9 +145,9 @@ export const getTimezoneOffsetHm = (
 
 	return (
 		( offset <= 0 ? '+' : '-' ) +
-			pad( parseInt( String( Math.abs( offset / 60 ) ) ), 2 ) +
+			padStart( parseInt( String( Math.abs( offset / 60 ) ) ), 2 ) +
 			( separator || '' ) +
-			pad( Math.abs( offset % 60 ), 2 )
+			padStart( Math.abs( offset % 60 ), 2 )
 	)
 
 }
