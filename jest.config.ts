@@ -1,16 +1,22 @@
+import type { JestConfigWithTsJest } from 'ts-jest'
+import dotenv from 'dotenv'
+
 const env = process.env.NODE_ENV
 
-// eslint-disable-next-line @typescript-eslint/no-require-imports
-require( 'dotenv' )
-	.config( { path: [ `.env.${ env }`, '.env.local', '.env' ] } )
+dotenv.config( { path: [
+	`.env.${ env }.local`,
+	`.env.${ env }`,
+	'.env.local',
+	'.env'
+] } )
 
 
 /**
  * Initial file generated with `npx ts-jest config:init`
  * 
- * @type {import('ts-jest').JestConfigWithTsJest}
  */
-module.exports = {
+const config: JestConfigWithTsJest = {
+	/** https://jestjs.io/docs/configuration#testenvironment-string */
 	testEnvironment: 'node',
 	moduleDirectories: [ 'node_modules', '<rootDir>/' ],
 	/**
@@ -25,3 +31,5 @@ module.exports = {
 		'^.+.tsx?$': [ 'ts-jest', {} ],
 	},
 }
+
+export default config

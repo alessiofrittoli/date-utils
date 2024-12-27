@@ -35,7 +35,7 @@ const DIVISIONS: Division[] = [
  * 
  * @returns	The relative time formatted date string.
  */
-const formatRelativeTime = (
+export const formatRelativeTime = (
 	date		: string | number | Date = new Date(),
 	locales?	: string | string[],
 	options		: Intl.RelativeTimeFormatOptions = {
@@ -57,5 +57,3 @@ const formatRelativeTime = (
 		duration /= division!.amount
 	}
 }
-
-export default formatRelativeTime

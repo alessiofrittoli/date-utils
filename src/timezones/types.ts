@@ -59,7 +59,7 @@ export type OthersTimezone = ValueOf<typeof OTHERS_TIMEZONES>
 /**
  * Timezone Identifier.
  */
-type Timezone = (
+export type Timezone = (
 	| OthersTimezone
 	| AfricaTimezone
 	| AmericaTimezone
@@ -69,6 +69,3 @@ type Timezone = (
 	| AntarcticaTimezone
 	| AtlanticTimezone
 )
-
-
-export default Timezone

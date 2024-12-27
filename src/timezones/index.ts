@@ -1,5 +1,5 @@
-import { pad } from '@alessiofrittoli/math-utils'
-import type Timezone from './types'
+import { padStart } from '@alessiofrittoli/math-utils'
+import type { Timezone } from './types'
 
 /**
  * Get the current runtime Timezone ID.
@@ -109,6 +109,8 @@ export const getTimezoneOffsetH = (
 
 	}
 
+	if ( timeZone === 'UTC' ) return 0
+
 	return (
 		typeof date === 'string'
 			? getTimezoneHFromGMTDateString( date ) || getTimezoneHFromGMTDateString( getTimezoneName( {
@@ -145,9 +147,9 @@ export const getTimezoneOffsetHm = (
 
 	return (
 		( offset <= 0 ? '+' : '-' ) +
-			pad( parseInt( String( Math.abs( offset / 60 ) ) ), 2 ) +
+			padStart( parseInt( String( Math.abs( offset / 60 ) ) ), 2 ) +
 			( separator || '' ) +
-			pad( Math.abs( offset % 60 ), 2 )
+			padStart( Math.abs( offset % 60 ), 2 )
 	)
 
 }
@@ -171,7 +173,7 @@ export const getTimezoneName = (
 		timeZoneName: options?.timeZoneName || 'shortOffset',
 		timeZone	: options?.timeZone as string,
 	} )
-		.formatToParts( options?.date ? new Date( options?.date ) : undefined )
+		.formatToParts( options?.date ? new Date( options.date ) : undefined )
 		.find( i => i.type === 'timeZoneName' )!.value
 )
 
@@ -183,7 +185,7 @@ export const getTimezoneName = (
  * @param	timeZone	( Optional ) The Timezone identifier used to retrieve the Timezone Offset.\
  * @returns	The Daylight Saving Time Timezone offset.
  */
-export const stdTimezoneOffset = (
+export const dstTimezoneOffset = (
 	date		: string | number | Date = new Date(),
 	timeZone?	: Timezone,
 ) => {
@@ -210,5 +212,5 @@ export const isDstObserved = (
 	date		: string | number | Date = new Date(),
 	timeZone?	: Timezone,
 ) => (
-	( getTimezoneOffsetH( date, timeZone ) * -60 ) < stdTimezoneOffset( date, timeZone )
+	( getTimezoneOffsetH( date, timeZone ) * -60 ) < dstTimezoneOffset( date, timeZone )
 )

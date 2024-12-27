@@ -1,6 +1,6 @@
 import { englishOrdinalSuffix } from '@alessiofrittoli/math-utils/helpers'
 
-import type Timezone from '@/timezones/types'
+import type { Timezone } from '@/timezones/types'
 import {
 	getCurrentTimeZoneId, getTimezoneName,
 	getTimezoneOffsetH, getTimezoneOffsetHm,
@@ -67,13 +67,14 @@ import {
  * - `C`: Timezone identifier - long
  * - `K`: Timezone identifier - long generic
  * - `Q`: Timezone identifier - long offset
+ * - `q`: Same as `Q` but without colon
  * - `R`: Timezone identifier - short
  * - `V`: Timezone identifier - short generic
  * - `T`: Timezone identifier - short offset
  * - `I`: Whether or not the date is in Daylight Saving Time - 1 if it in DST, 0 otherwise
  * - `O`: Difference to Greenwich time (GMT) without colon between hours and minutes
  * - `P`: Difference to Greenwich time (GMT) with colon between hours and minutes
- * - `p`: The same as P, but returns Z instead of +00:00
+ * - `p`: The same as `P`, but returns 'Z' instead of +00:00
  * - `Z`: Timezone offset in seconds. The offset for timezones west of UTC is always negative, and for those east of UTC is always positive
  * 
  * Full Datetime
@@ -83,7 +84,7 @@ import {
  * 
  * @returns	The formatted Date string.
  */
-const formatDate = (
+export const formatDate = (
 	_date		: string | number | Date = new Date(),
 	format?		: string | ( Intl.DateTimeFormatOptions & { timeZone?: Timezone } ),
 	locales?	: Intl.LocalesArgument,
@@ -273,6 +274,12 @@ const formatDate = (
 							timeZoneName	: 'longOffset'
 						} )
 					)
+				case 'q':
+					// same as `Q` but without colon
+					return (
+						formatDate( date, 'Q', locales, _timeZone )
+							.replace( /:/g, '') 
+					)
 				case 'R':
 					// Timezone identifier - short
 					return (
@@ -305,7 +312,7 @@ const formatDate = (
 					)
 				case 'I':
 					// Whether or not the date is in Daylight Saving Time - 1 if it in DST, 0 otherwise
-					return Number( isDstObserved( date ) )
+					return Number( isDstObserved( date, _timeZone ) )
 				case 'O':
 					// Difference to Greenwich time (GMT) without colon between hours and minutes
 					return getTimezoneOffsetHm( _date, _timeZone, '' )
@@ -329,7 +336,8 @@ const formatDate = (
 					return date.toISOString()
 				case 'r':
 					// » RFC 2822/» RFC 5322 formatted date
-					return date.toString()
+					// we need to reconstruct the `Date.toString()` output to add Timezone support.
+					return formatDate( date, 'D M d Y H:i:s q (C)', locales, _timeZone )
 				case 'U':
 					// Seconds since the Unix Epoch (January 1 1970 00:00:00 GMT)
 					return date.getTime() / 1000
@@ -343,6 +351,3 @@ const formatDate = (
 	return result.join( '' )
 
 }
-
-
-export default formatDate

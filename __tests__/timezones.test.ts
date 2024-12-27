@@ -1,4 +1,4 @@
-import { getTimezoneHFromGMTDateString, getTimezoneName, getTimezoneOffsetH, getTimezoneOffsetHm, isDstObserved } from '@/timezones'
+import { dstTimezoneOffset, getTimezoneHFromGMTDateString, getTimezoneName, getTimezoneOffsetH, getTimezoneOffsetHm, isDstObserved } from '@/timezones'
 
 describe( 'getTimezoneHFromGMTDateString', () => {
 
@@ -50,7 +50,7 @@ describe( 'getTimezoneOffsetH', () => {
 	} )
 
 	it( 'extracts offset from RFC 2822/5322 Date String', () => {
-		const dateString = 'Fri Nov 29 2024 19:13:58 GMT+0100 (Central European Standard Time)'
+		const dateString = 'Fri Nov 29 2024 19:13:58 GMT+0100 (Central European Standard Time)'	
 		expect( getTimezoneOffsetH( dateString ) ).toBe( 1 )
 	} )
 
@@ -59,10 +59,28 @@ describe( 'getTimezoneOffsetH', () => {
 		expect( getTimezoneHFromGMTDateString( new Date().toISOString() ) ).toBe( 0 )
 	} )
 
+
+	it( 'returns the given Timezone offset ignoring the provided ISO Date string', () => {
+		expect( getTimezoneOffsetH( '2024-11-29T18:13:58.000Z', 'Europe/Rome' ) )
+			.toBe( 1 )
+	} )
+
 } )
 
 
 describe( 'getTimezoneOffsetHm', () => {
+
+	it( 'returns a positive offset for EAST Timezones', () => {
+		expect( getTimezoneOffsetHm( new Date( '2024-06' ), 'Europe/Rome' ) )
+			.toBe( '+02:00' )
+	} )
+
+
+	it( 'returns a negative offset for WEST Timezones', () => {
+		expect( getTimezoneOffsetHm( new Date( '2024-06' ), 'America/New_York' ) )
+			.toBe( '-04:00' )
+	} )
+
 
 	it( 'returns offset with default separator', () => {
 		expect( getTimezoneOffsetHm( new Date( '2024-06' ), 'Europe/Rome' ) )
@@ -108,6 +126,26 @@ describe( 'getTimezoneName', () => {
 		} ) ).toBe( 'Ora legale dell’Europa centrale' )
 	} )
 	
+} )
+
+describe( 'dstTimezoneOffset', () => {
+
+	it( 'returns the DST Timezone offset of the current date', () => {
+		expect( dstTimezoneOffset() ).not.toBeNaN()
+	} )
+
+
+	it( 'accepts a Date argument', () => {
+		expect( dstTimezoneOffset( new Date( '2024-06-01' ) ) ).not.toBeNaN()
+	} )
+
+
+	it( 'handles different Timezone other than System Timezone', () => {
+		expect(
+			dstTimezoneOffset( new Date( '2024-10-27T00:59:00.000Z' ), 'Europe/Rome' )
+		).toBe( -60 )
+	} )
+
 } )
 
 
