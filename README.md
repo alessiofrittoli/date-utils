@@ -2,6 +2,8 @@
 
 Version 1.1.1
 
+[![Coverage Status](https://coveralls.io/repos/github/alessiofrittoli/date-utils/badge.svg)](https://coveralls.io/github/alessiofrittoli/date-utils) [![Dependencies](https://img.shields.io/librariesio/release/npm/%40alessiofrittoli%2Fdate-utils)](https://libraries.io/npm/%40alessiofrittoli%2Fdate-utils)
+
 ## Lightweight TypeScript date utility functions library
 
 This lightweight TypeScript utility library comes with common and utility dates functions.
