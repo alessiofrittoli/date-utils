@@ -90,6 +90,7 @@ The following tokens can be used in the format string for custom formatting:
 |-------|-------------------------------------------------|
 | `a`   | Lowercase Ante/Post Meridiem (e.g., "am", "pm") |
 | `A`   | Uppercase Ante/Post Meridiem (e.g., "AM", "PM") |
+| `B`   | Swatch Internet Time.                           |
 | `g`   | 12-hour format of an hour without leading zeros |
 | `G`   | 24-hour format of an hour without leading zeros |
 | `h`   | 12-hour format of an hour with leading zeros    |
@@ -97,6 +98,7 @@ The following tokens can be used in the format string for custom formatting:
 | `i`   | Minutes with leading zeros                      |
 | `s`   | Seconds with leading zeros                      |
 | `v`   | Milliseconds                                    |
+| `u`   | Microseconds                                    |
 
 ---
 
@@ -105,8 +107,17 @@ The following tokens can be used in the format string for custom formatting:
 | Token | Description                         |
 |-------|-------------------------------------|
 | `e`   | Current runtime timezone identifier |
+| `C`   | Timezone identifier - long          |
+| `K`   | Timezone identifier - long generic  |
+| `Q`   | Timezone identifier - long offset   |
+| `q`   | Same as `Q` but without a colon     |
+| `R`   | Timezone identifier - short         |
+| `V`   | Timezone identifier - short generic |
+| `T`   | Timezone identifier - short offset  |
+| `I`   | Daylight Saving Time - 1 in DST, 0 otherwise |
 | `O`   | Difference to GMT without a colon   |
 | `P`   | Difference to GMT with a colon      |
+| `P`   | Same as `P`, but returns 'Z' instead of +00:00 |
 | `Z`   | Timezone offset in seconds          |
 
 ---
