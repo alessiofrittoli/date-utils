@@ -173,7 +173,7 @@ export const getTimezoneName = (
 		timeZoneName: options?.timeZoneName || 'shortOffset',
 		timeZone	: options?.timeZone as string,
 	} )
-		.formatToParts( options?.date ? new Date( options?.date ) : undefined )
+		.formatToParts( options?.date ? new Date( options.date ) : undefined )
 		.find( i => i.type === 'timeZoneName' )!.value
 )
 
@@ -185,7 +185,7 @@ export const getTimezoneName = (
  * @param	timeZone	( Optional ) The Timezone identifier used to retrieve the Timezone Offset.\
  * @returns	The Daylight Saving Time Timezone offset.
  */
-export const stdTimezoneOffset = (
+export const dstTimezoneOffset = (
 	date		: string | number | Date = new Date(),
 	timeZone?	: Timezone,
 ) => {
@@ -212,5 +212,5 @@ export const isDstObserved = (
 	date		: string | number | Date = new Date(),
 	timeZone?	: Timezone,
 ) => (
-	( getTimezoneOffsetH( date, timeZone ) * -60 ) < stdTimezoneOffset( date, timeZone )
+	( getTimezoneOffsetH( date, timeZone ) * -60 ) < dstTimezoneOffset( date, timeZone )
 )
