@@ -18,8 +18,9 @@ Everything is exported from the root of this library but specific paths can be u
 	- [Formatting functions](https://github.com/alessiofrittoli/date-utils/blob/master/docs/format/README.md)
 	- [Timezone utilities](https://github.com/alessiofrittoli/date-utils/blob/master/docs/timezones/README.md)
 	- [Utility functions](https://github.com/alessiofrittoli/date-utils/blob/master/docs/utils/README.md)
-- [ESLint](#eslint)
-- [Jest](#jest)
+- [Development](#development)
+	- [ESLint](#eslint)
+	- [Jest](#jest)
 - [Contributing](#contributing)
 - [Security](#security)
 - [Credits](#made-with-)
@@ -40,7 +41,29 @@ or using `pnpm`
 pnpm i @alessiofrittoli/date-utils
 ```
 
-### [ESLint](https://www.npmjs.com/package/eslint)
+### Development
+
+#### Install depenendencies
+
+```bash
+npm install
+```
+
+or using `pnpm`
+
+```bash
+pnpm i
+```
+
+#### Build your source code
+
+Run the following command to build code for distribution.
+
+```bash
+pnpm build
+```
+
+#### [ESLint](https://www.npmjs.com/package/eslint)
 
 warnings / errors check.
 
@@ -48,13 +71,13 @@ warnings / errors check.
 pnpm lint
 ```
 
-### [Jest](https://npmjs.com/package/jest)
+#### [Jest](https://npmjs.com/package/jest)
 
 Run all the defined test suites by running the following:
 
 ```bash
 # Run tests and watch file changes.
-pnpm test
+pnpm test:watch
 
 # Run tests in a CI environment.
 pnpm test:ci
@@ -70,6 +93,16 @@ pnpm test:format
 pnpm test:timezones
 # or
 pnpm test:utils
+```
+
+Run tests with coverage.
+
+An HTTP server is then started to serve coverage files from `./coverage` folder.
+
+⚠️ You may see a blank page the first time you run this command. Simply refresh the browser to see the updates.
+
+```bash
+test:coverage:serve
 ```
 
 ---
