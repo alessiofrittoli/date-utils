@@ -1,6 +1,7 @@
 /src
 /__tests__
 /docs
+/scripts
 
 /node_modules
 /.git

@@ -95,6 +95,7 @@
 		"test:utils": "pnpm test utils.test.ts"
 	},
 	"devDependencies": {
+		"@alessiofrittoli/node-scripts": "^2.1.0",
 		"@eslint/js": "^9.17.0",
 		"@jest/globals": "^29.7.0",
 		"@types/jest": "^29.5.14",
