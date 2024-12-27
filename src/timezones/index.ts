@@ -1,5 +1,5 @@
 import { padStart } from '@alessiofrittoli/math-utils'
-import type Timezone from './types'
+import type { Timezone } from './types'
 
 /**
  * Get the current runtime Timezone ID.

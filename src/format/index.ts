@@ -1,5 +1,5 @@
 import { InSeconds } from '../common'
-import type Timezone from '@/timezones/types'
+import type { Timezone } from '@/timezones/types'
 
 export type SecondsToUnitReturn<TSkipWeeks extends boolean = false> = {
 	/** Years in given time. */

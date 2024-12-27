@@ -1,6 +1,6 @@
 import { englishOrdinalSuffix } from '@alessiofrittoli/math-utils/helpers'
 
-import type Timezone from '@/timezones/types'
+import type { Timezone } from '@/timezones/types'
 import {
 	getCurrentTimeZoneId, getTimezoneName,
 	getTimezoneOffsetH, getTimezoneOffsetHm,
@@ -83,7 +83,7 @@ import {
  * 
  * @returns	The formatted Date string.
  */
-const formatDate = (
+export const formatDate = (
 	_date		: string | number | Date = new Date(),
 	format?		: string | ( Intl.DateTimeFormatOptions & { timeZone?: Timezone } ),
 	locales?	: Intl.LocalesArgument,
@@ -343,6 +343,3 @@ const formatDate = (
 	return result.join( '' )
 
 }
-
-
-export default formatDate
