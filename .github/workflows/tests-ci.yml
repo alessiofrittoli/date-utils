@@ -19,6 +19,9 @@ jobs:
       run: |
         npm install -g pnpm@latest
         pnpm i
+
+    - name: Run tests
+      run: |
         pnpm test:ci:coverage
     
     - name: Report to Coveralls
