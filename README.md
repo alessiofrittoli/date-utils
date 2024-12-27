@@ -1,6 +1,6 @@
 # Date Utils 🗓️
 
-Version 2.0.0
+Version 2.0.1
 
 [![Coverage Status](https://coveralls.io/repos/github/alessiofrittoli/date-utils/badge.svg)](https://coveralls.io/github/alessiofrittoli/date-utils) [![Dependencies](https://img.shields.io/librariesio/release/npm/%40alessiofrittoli%2Fdate-utils)](https://libraries.io/npm/%40alessiofrittoli%2Fdate-utils)
 

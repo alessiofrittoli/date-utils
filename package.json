@@ -1,6 +1,6 @@
 {
 	"name": "@alessiofrittoli/date-utils",
-	"version": "2.0.0",
+	"version": "2.0.1",
 	"description": "Lightweight TypeScript date utility functions library",
 	"author": {
 		"name": "Alessio Frittoli",
@@ -80,7 +80,7 @@
 	"scripts": {
 		"build": "pnpm lint && pnpm test:ci && tsup",
 		"build:watch": "tsup --watch",
-		"release": "node scripts/publish.js --verbose",
+		"release": "node scripts/publish.js --verbose --npm",
 		"lint": "eslint",
 		"test:watch": "jest --watchAll --verbose",
 		"test:ci": "jest --ci --verbose",
