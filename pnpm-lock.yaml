@@ -12,12 +12,12 @@ importers:
         specifier: ^1.2.0
         version: 1.2.0
       '@alessiofrittoli/type-utils':
-        specifier: ^1.4.0
-        version: 1.4.0
+        specifier: ^1.5.0
+        version: 1.5.0
     devDependencies:
       '@alessiofrittoli/node-scripts':
-        specifier: ^2.1.0
-        version: 2.1.0
+        specifier: ^2.2.1
+        version: 2.2.1
       '@eslint/js':
         specifier: ^9.17.0
         version: 9.17.0
@@ -72,11 +72,11 @@ packages:
   '@alessiofrittoli/math-utils@1.2.0':
     resolution: {integrity: sha512-Iyk8nIijNhmhcekZ+2aISwcLXKR219OCv8ngmDGAjlHOp4gWyTN7+2hvN8Bw0wUOkIe0QdKDyBLne84xIQAhxg==}
 
-  '@alessiofrittoli/node-scripts@2.1.0':
-    resolution: {integrity: sha512-BXrty43tTWUn35cft8DJHzEGTTxv2bLqcrZhXn7SH52kjArUU4UZlWVvCNWuz+79X4HujmWrkKWeCVJpBpKLcQ==}
+  '@alessiofrittoli/node-scripts@2.2.1':
+    resolution: {integrity: sha512-VP9pUyrPhudlv/1UOxb1BfisKOSAAl/0H8beM5Udn3ddMHPVbrP4ul1rLqDbHWsFzePmpOiOsvOpEAsj2YPnWA==}
 
-  '@alessiofrittoli/type-utils@1.4.0':
-    resolution: {integrity: sha512-aBnfTtgXSgsRNNA4cmIVwBbHVw1t3iQHBgb3GhUX052hgYcVq9ZI3awhF3MvVC9Y9xWexP047epEfGe9yBVcIw==}
+  '@alessiofrittoli/type-utils@1.5.0':
+    resolution: {integrity: sha512-UCc2S8PCYaWS9uaKwF3k8MkU1vPqulnGk08NFDBi+dmjFQvyGCkG1mkSvfQjjXz0XOzh5zgn+mVqP+fZLF2CcQ==}
 
   '@ampproject/remapping@2.3.0':
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
@@ -2250,12 +2250,12 @@ snapshots:
 
   '@alessiofrittoli/math-utils@1.2.0': {}
 
-  '@alessiofrittoli/node-scripts@2.1.0': {}
+  '@alessiofrittoli/node-scripts@2.2.1': {}
 
-  '@alessiofrittoli/type-utils@1.4.0':
+  '@alessiofrittoli/type-utils@1.5.0':
     dependencies:
       '@alessiofrittoli/chain-functions': 2.0.0
-      '@alessiofrittoli/node-scripts': 2.1.0
+      '@alessiofrittoli/node-scripts': 2.2.1
 
   '@ampproject/remapping@2.3.0':
     dependencies:
