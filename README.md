@@ -1,8 +1,14 @@
 # Date Utils 🗓️
 
-Version 2.1.0
+[![NPM Latest Version][version-badge]][npm-url] [![Coverage Status][coverage-badge]][coverage-url] [![NPM Monthly Downloads][downloads-badge]][npm-url] [![Dependencies][deps-badge]][deps-url]
 
-[![Coverage Status](https://coveralls.io/repos/github/alessiofrittoli/date-utils/badge.svg)](https://coveralls.io/github/alessiofrittoli/date-utils) [![Dependencies](https://img.shields.io/librariesio/release/npm/%40alessiofrittoli%2Fdate-utils)](https://libraries.io/npm/%40alessiofrittoli%2Fdate-utils)
+[version-badge]: https://img.shields.io/npm/v/%40alessiofrittoli%2Fdate-utils
+[npm-url]: https://npmjs.org/package/%40alessiofrittoli%2Fdate-utils
+[coverage-badge]: https://coveralls.io/repos/github/alessiofrittoli/date-utils/badge.svg
+[coverage-url]: https://coveralls.io/github/alessiofrittoli/date-utils
+[downloads-badge]: https://img.shields.io/npm/dm/%40alessiofrittoli%2Fdate-utils.svg
+[deps-badge]: https://img.shields.io/librariesio/release/npm/%40alessiofrittoli%2Fdate-utils
+[deps-url]: https://libraries.io/npm/%40alessiofrittoli%2Fdate-utils
 
 ## Lightweight TypeScript date utility functions library
 
@@ -14,13 +20,13 @@ Everything is exported from the root of this library but specific paths can be u
 
 - [Getting started](#getting-started)
 - What's inside
-	- [Common utilities](https://github.com/alessiofrittoli/date-utils/blob/master/docs/common/README.md)
-	- [Formatting functions](https://github.com/alessiofrittoli/date-utils/blob/master/docs/format/README.md)
-	- [Timezone utilities](https://github.com/alessiofrittoli/date-utils/blob/master/docs/timezones/README.md)
-	- [Utility functions](https://github.com/alessiofrittoli/date-utils/blob/master/docs/utils/README.md)
+  - [Common utilities](https://github.com/alessiofrittoli/date-utils/blob/master/docs/common/README.md)
+  - [Formatting functions](https://github.com/alessiofrittoli/date-utils/blob/master/docs/format/README.md)
+  - [Timezone utilities](https://github.com/alessiofrittoli/date-utils/blob/master/docs/timezones/README.md)
+  - [Utility functions](https://github.com/alessiofrittoli/date-utils/blob/master/docs/utils/README.md)
 - [Development](#development)
-	- [ESLint](#eslint)
-	- [Jest](#jest)
+  - [ESLint](#eslint)
+  - [Jest](#jest)
 - [Contributing](#contributing)
 - [Security](#security)
 - [Credits](#made-with-)
@@ -55,7 +61,7 @@ or using `pnpm`
 pnpm i
 ```
 
-#### Build your source code
+#### Build the source code
 
 Run the following command to build code for distribution.
 
@@ -121,30 +127,30 @@ If you believe you have found a security vulnerability, we encourage you to **_r
 ### Made with ☕
 
 <table style='display:flex;gap:20px;'>
-	<tbody>
-		<tr>
-			<td>
-				<img src='https://avatars.githubusercontent.com/u/35973186' style='width:60px;border-radius:50%;object-fit:contain;'>
-			</td>
-			<td>
-				<table style='display:flex;gap:2px;flex-direction:column;'>
-					<tbody>
-						<tr>
-							<td>
-								<a href='https://github.com/alessiofrittoli' target='_blank' rel='noopener'>Alessio Frittoli</a>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<small>
-									<a href='https://alessiofrittoli.it' target='_blank' rel='noopener'>https://alessiofrittoli.it</a> |
-									<a href='mailto:info@alessiofrittoli.it' target='_blank' rel='noopener'>info@alessiofrittoli.it</a>
-								</small>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</td>
-		</tr>
-	</tbody>
+  <tbody>
+    <tr>
+      <td>
+        <img alt="avatar" src='https://avatars.githubusercontent.com/u/35973186' style='width:60px;border-radius:50%;object-fit:contain;'>
+      </td>
+      <td>
+        <table style='display:flex;gap:2px;flex-direction:column;'>
+          <tbody>
+              <tr>
+                <td>
+                  <a href='https://github.com/alessiofrittoli' target='_blank' rel='noopener'>Alessio Frittoli</a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <small>
+                    <a href='https://alessiofrittoli.it' target='_blank' rel='noopener'>https://alessiofrittoli.it</a> |
+                    <a href='mailto:info@alessiofrittoli.it' target='_blank' rel='noopener'>info@alessiofrittoli.it</a>
+                  </small>
+                </td>
+              </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
 </table>
