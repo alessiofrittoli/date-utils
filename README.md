@@ -1,14 +1,21 @@
 # Date Utils 🗓️
 
-[![NPM Latest Version][version-badge]][npm-url] [![Coverage Status][coverage-badge]][coverage-url] [![NPM Monthly Downloads][downloads-badge]][npm-url] [![Dependencies][deps-badge]][deps-url]
+[![NPM Latest Version][version-badge]][npm-url] [![Coverage Status][coverage-badge]][coverage-url] [![Socket Status][socket-badge]][socket-url] [![NPM Monthly Downloads][downloads-badge]][npm-url] [![Dependencies][deps-badge]][deps-url]
+
+[![GitHub Sponsor][sponsor-badge]][sponsor-url]
 
 [version-badge]: https://img.shields.io/npm/v/%40alessiofrittoli%2Fdate-utils
 [npm-url]: https://npmjs.org/package/%40alessiofrittoli%2Fdate-utils
 [coverage-badge]: https://coveralls.io/repos/github/alessiofrittoli/date-utils/badge.svg
 [coverage-url]: https://coveralls.io/github/alessiofrittoli/date-utils
+[socket-badge]: https://socket.dev/api/badge/npm/package/@alessiofrittoli/date-utils
+[socket-url]: https://socket.dev/npm/package/@alessiofrittoli/date-utils/overview
 [downloads-badge]: https://img.shields.io/npm/dm/%40alessiofrittoli%2Fdate-utils.svg
 [deps-badge]: https://img.shields.io/librariesio/release/npm/%40alessiofrittoli%2Fdate-utils
 [deps-url]: https://libraries.io/npm/%40alessiofrittoli%2Fdate-utils
+
+[sponsor-badge]: https://img.shields.io/static/v1?label=Fund%20this%20package&message=%E2%9D%A4&logo=GitHub&color=%23DB61A2
+[sponsor-url]: https://github.com/sponsors/alessiofrittoli
 
 ## Lightweight TypeScript date utility functions library
 
@@ -25,6 +32,8 @@ Everything is exported from the root of this library but specific paths can be u
   - [Timezone utilities](https://github.com/alessiofrittoli/date-utils/blob/master/docs/timezones/README.md)
   - [Utility functions](https://github.com/alessiofrittoli/date-utils/blob/master/docs/utils/README.md)
 - [Development](#development)
+  - [Install depenendencies](#install-depenendencies)
+  - [Build the source code](#build-the-source-code)
   - [ESLint](#eslint)
   - [Jest](#jest)
 - [Contributing](#contributing)
@@ -63,7 +72,7 @@ pnpm i
 
 #### Build the source code
 
-Run the following command to build code for distribution.
+Run the following command to test and build code for distribution.
 
 ```bash
 pnpm build
@@ -85,20 +94,23 @@ Run all the defined test suites by running the following:
 # Run tests and watch file changes.
 pnpm test:watch
 
+# Run tests and watch file changes with jest-environment-jsdom.
+pnpm test:jsdom
+
 # Run tests in a CI environment.
 pnpm test:ci
+
+# Run tests in a CI environment with jest-environment-jsdom.
+pnpm test:ci:jsdom
 ```
 
 You can eventually run specific suits like so:
 
+- See [`package.json`](./package.json) file scripts for more info.
+
 ```bash
-pnpm test:common
-# or
-pnpm test:format
-# or
-pnpm test:timezones
-# or
-pnpm test:utils
+pnpm test:jest
+pnpm test:jest:jsdom
 ```
 
 Run tests with coverage.
@@ -115,8 +127,13 @@ test:coverage:serve
 
 ### Contributing
 
-Contributions are truly welcome!\
+Contributions are truly welcome!
+
 Please refer to the [Contributing Doc](./CONTRIBUTING.md) for more information on how to start contributing to this project.
+
+Help keep this project up to date with [GitHub Sponsor][sponsor-url].
+
+[![GitHub Sponsor][sponsor-badge]][sponsor-url]
 
 ---
 
