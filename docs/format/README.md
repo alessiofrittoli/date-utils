@@ -141,7 +141,7 @@ The following tokens can be used in the format string for custom formatting:
 ```ts
 import { formatDate } from '@alessiofrittoli/date-utils'
 // or
-import formatDate from '@alessiofrittoli/date-utils/format/formatDate'
+import formatDate from '@alessiofrittoli/date-utils/format'
 
 formatDate() // Outputs the current date in the default locale and format
 ```
@@ -151,7 +151,7 @@ formatDate() // Outputs the current date in the default locale and format
 ```ts
 import { formatDate } from '@alessiofrittoli/date-utils'
 // or
-import formatDate from '@alessiofrittoli/date-utils/format/formatDate'
+import formatDate from '@alessiofrittoli/date-utils/format'
 
 formatDate( '2024-11-24', 'Y-d-m' ) // Outputs: "2024-24-11"
 ```
@@ -161,7 +161,7 @@ formatDate( '2024-11-24', 'Y-d-m' ) // Outputs: "2024-24-11"
 ```ts
 import { formatDate } from '@alessiofrittoli/date-utils'
 // or
-import formatDate from '@alessiofrittoli/date-utils/format/formatDate'
+import formatDate from '@alessiofrittoli/date-utils/format'
 
 formatDate( '2024-11-24', {
 	year	: 'numeric',
@@ -176,7 +176,7 @@ formatDate( '2024-11-24', {
 ```ts
 import { formatDate } from '@alessiofrittoli/date-utils'
 // or
-import formatDate from '@alessiofrittoli/date-utils/format/formatDate'
+import formatDate from '@alessiofrittoli/date-utils/format'
 
 formatDate( '2024-11-24T12:00:00Z', 'Y-m-d H:i', 'en-US', 'America/New_York' )
 // Outputs: "2024-11-24 07:00" (formatted in the specified timezone)
@@ -430,7 +430,7 @@ A `string` representing the relative time in a human-readable format.
 #### Basic usage
 
 ```ts
-import formatRelativeTime from '@alessiofrittoli/date-utils/format/formatRelativeTime'
+import formatRelativeTime from '@alessiofrittoli/date-utils/format'
 
 console.log( formatRelativeTime() ) // Outputs: "now"
 ```
@@ -438,7 +438,7 @@ console.log( formatRelativeTime() ) // Outputs: "now"
 #### Two months ago
 
 ```ts
-import formatRelativeTime from '@alessiofrittoli/date-utils/format/formatRelativeTime'
+import formatRelativeTime from '@alessiofrittoli/date-utils/format'
 
 const currentDate = new Date()
 
@@ -451,7 +451,7 @@ console.log( formatRelativeTime(
 #### Last week
 
 ```ts
-import formatRelativeTime from '@alessiofrittoli/date-utils/format/formatRelativeTime'
+import formatRelativeTime from '@alessiofrittoli/date-utils/format'
 
 const currentDate = new Date()
 
@@ -464,7 +464,7 @@ console.log( formatRelativeTime(
 #### Yesterday
 
 ```ts
-import formatRelativeTime from '@alessiofrittoli/date-utils/format/formatRelativeTime'
+import formatRelativeTime from '@alessiofrittoli/date-utils/format'
 
 const currentDate = new Date()
 
@@ -477,7 +477,7 @@ console.log( formatRelativeTime(
 #### Yesterday - always numeric
 
 ```ts
-import formatRelativeTime from '@alessiofrittoli/date-utils/format/formatRelativeTime'
+import formatRelativeTime from '@alessiofrittoli/date-utils/format'
 
 const currentDate	= new Date()
 const yesterdayDate	= new Date().setDate( currentDate.getDate() - 1 )
@@ -491,7 +491,7 @@ console.log(
 #### Custom locale
 
 ```ts
-import formatRelativeTime from '@alessiofrittoli/date-utils/format/formatRelativeTime'
+import formatRelativeTime from '@alessiofrittoli/date-utils/format'
 
 const currentDate = new Date()
 
@@ -504,7 +504,7 @@ console.log( formatRelativeTime(
 #### Future date
 
 ```ts
-import formatRelativeTime from '@alessiofrittoli/date-utils/format/formatRelativeTime'
+import formatRelativeTime from '@alessiofrittoli/date-utils/format'
 
 const currentDate = new Date()
 

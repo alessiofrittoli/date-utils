@@ -1,7 +1,6 @@
 import { InSeconds } from '@/common'
 import { formatLocaleDate, secondsToUnit } from '@/format'
-import { formatDate } from '@/format/formatDate'
-import { formatRelativeTime } from '@/format/formatRelativeTime'
+import { formatDate, formatRelativeTime } from '@/format'
 
 
 describe( 'formatDate', () => {
