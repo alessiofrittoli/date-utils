@@ -46,16 +46,6 @@
 			"import": "./dist/format/index.mjs",
 			"require": "./dist/format/index.js"
 		},
-		"./format/formatDate": {
-			"types": "./dist/format/formatDate.d.ts",
-			"import": "./dist/format/formatDate.mjs",
-			"require": "./dist/format/formatDate.js"
-		},
-		"./format/formatRelativeTime": {
-			"types": "./dist/format/formatRelativeTime.d.ts",
-			"import": "./dist/format/formatRelativeTime.mjs",
-			"require": "./dist/format/formatRelativeTime.js"
-		},
 		"./timezones": {
 			"types": "./dist/timezones/index.d.ts",
 			"import": "./dist/timezones/index.mjs",

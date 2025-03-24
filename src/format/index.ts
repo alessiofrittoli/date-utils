@@ -1,6 +1,10 @@
 import { InSeconds } from '../common'
 import type { Timezone } from '@/timezones/types'
 
+export * from './formatDate'
+export * from './formatRelativeTime'
+
+
 export type SecondsToUnitReturn<TSkipWeeks extends boolean = false> = {
 	/** Years in given time. */
 	years: number
