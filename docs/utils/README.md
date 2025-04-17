@@ -2,20 +2,23 @@
 
 [🔙 Back](../../README.md)
 
-## daysInMonth
+### daysInMonth
 
-The `daysInMonth` function determines the total number of days in the month for a given date.\
+The `daysInMonth` function determines the total number of days in the month for a given date.
+
 If no date is provided, it defaults to the current date.
 
 <details>
 
 <summary>Parameters</summary>
 
-| Parameter   | Type                          | Default | Description                        |
-|-------------|-------------------------------|---------|------------------------------------|
-| `date`      | `string \| number \| Date`    | `new Date()` | (Optional) The date for which the number of days in the month is calculated. |
+| Parameter   | Type                       | Default | Description                        |
+|-------------|----------------------------|---------|------------------------------------|
+| `date`      | `string \| number \| Date` | `new Date()` | (Optional) The date for which the number of days in the month is calculated. |
 
 </details>
+
+---
 
 <details>
 
@@ -27,11 +30,13 @@ Returns the total number of days in the month of the provided date.
 
 </details>
 
+---
+
 <details>
 
 <summary>Usage</summary>
 
-### Default Behavior
+#### Default Behavior
 
 ```ts
 import { daysInMonth } from '@alessiofrittoli/date-utils'
@@ -42,7 +47,7 @@ console.log( daysInMonth() )
 // Outputs: Number of days in the current month (e.g., 30 for November).
 ```
 
-### Specific Date
+#### Specific Date
 
 ```ts
 import { daysInMonth } from '@alessiofrittoli/date-utils'
@@ -59,7 +64,9 @@ console.log( daysInMonth( 1706745600000 ) )
 
 </details>
 
-## getDayOfYear
+---
+
+### getDayOfYear
 
 The `getDayOfYear` function calculates the day number of the year for a given date.
 
@@ -73,6 +80,8 @@ The `getDayOfYear` function calculates the day number of the year for a given da
 
 </details>
 
+---
+
 <details>
 
 <summary>Returns</summary>
@@ -83,7 +92,9 @@ The day number of the year, where January 1st is 1.
 
 </details>
 
-## getISOWeekNumber
+---
+
+### getISOWeekNumber
 
 The `getISOWeekNumber` function calculates the ISO 8601 week number for a given date. In the ISO 8601 standard:
 
@@ -100,6 +111,8 @@ The `getISOWeekNumber` function calculates the ISO 8601 week number for a given 
 
 </details>
 
+---
+
 <details>
 
 <summary>Returns</summary>
@@ -110,7 +123,9 @@ The ISO 8601 week number for the given date.
 
 </details>
 
-## getISODayOfWeek
+---
+
+### getISODayOfWeek
 
 The `getISODayOfWeek` function retrieves the ISO 8601 numeric representation of the day of the week.
 
@@ -126,6 +141,8 @@ Unlike the standard JavaScript [Date.prototype.getDay()](https://developer.mozil
 
 </details>
 
+---
+
 <details>
 
 <summary>Returns</summary>
@@ -136,7 +153,9 @@ The ISO 8601 numeric day of the week.
 
 </details>
 
-## isLeapYear
+---
+
+### isLeapYear
 
 The `isLeapYear` function determines whether a given year is a leap year according to the Gregorian calendar.
 
@@ -150,6 +169,8 @@ The `isLeapYear` function determines whether a given year is a leap year accordi
 
 </details>
 
+---
+
 <details>
 
 <summary>Returns</summary>
@@ -161,7 +182,9 @@ Type: `boolean`
 
 </details>
 
-## getAmOrPm
+---
+
+### getAmOrPm
 
 The `getAmOrPm` function returns the appropriate Ante Meridiem (`AM`) or Post Meridiem (`PM`) designation based on the given hour value.
 
@@ -175,6 +198,8 @@ The `getAmOrPm` function returns the appropriate Ante Meridiem (`AM`) or Post Me
 
 </details>
 
+---
+
 <details>
 
 <summary>Returns</summary>
@@ -186,7 +211,9 @@ Type: `string`
 
 </details>
 
-## getSwatchBeat
+---
+
+### getSwatchBeat
 
 The `getSwatchBeat` function calculates the Swatch Internet Time (also known as beat), a unit of time introduced by Swatch in the late 1990s, where the day is divided into 1000 "beats". One beat represents 1/1000th of a day, or 1 minute and 26.4 seconds.
 
@@ -200,6 +227,8 @@ The `getSwatchBeat` function calculates the Swatch Internet Time (also known as 
 | `places`  | `number` | `3` | (Optional) The number of decimal places to round the result. |
 
 </details>
+
+---
 
 <details>
 

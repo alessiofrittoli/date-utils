@@ -20,6 +20,8 @@ It supports various granularities such as day, week, month, year, time, and time
 
 </details>
 
+---
+
 <details>
 
 <summary>Returns</summary>
@@ -29,6 +31,8 @@ Type: `string`
 Returns a formatted date string based on the provided `format` and options.
 
 </details>
+
+---
 
 <details>
 
@@ -132,6 +136,8 @@ The following tokens can be used in the format string for custom formatting:
 
 </details>
 
+---
+
 <details>
 
 <summary>Usage</summary>
@@ -141,7 +147,7 @@ The following tokens can be used in the format string for custom formatting:
 ```ts
 import { formatDate } from '@alessiofrittoli/date-utils'
 // or
-import formatDate from '@alessiofrittoli/date-utils/format'
+import { formatDate } from '@alessiofrittoli/date-utils/format'
 
 formatDate() // Outputs the current date in the default locale and format
 ```
@@ -151,7 +157,7 @@ formatDate() // Outputs the current date in the default locale and format
 ```ts
 import { formatDate } from '@alessiofrittoli/date-utils'
 // or
-import formatDate from '@alessiofrittoli/date-utils/format'
+import { formatDate } from '@alessiofrittoli/date-utils/format'
 
 formatDate( '2024-11-24', 'Y-d-m' ) // Outputs: "2024-24-11"
 ```
@@ -161,12 +167,12 @@ formatDate( '2024-11-24', 'Y-d-m' ) // Outputs: "2024-24-11"
 ```ts
 import { formatDate } from '@alessiofrittoli/date-utils'
 // or
-import formatDate from '@alessiofrittoli/date-utils/format'
+import { formatDate } from '@alessiofrittoli/date-utils/format'
 
 formatDate( '2024-11-24', {
-	year	: 'numeric',
-	month	: 'long',
-	day		: 'numeric',
+  year  : 'numeric',
+  month : 'long',
+  day   : 'numeric',
 }, 'en-US' )
 // Outputs: "November 24, 2024"
 ```
@@ -176,13 +182,15 @@ formatDate( '2024-11-24', {
 ```ts
 import { formatDate } from '@alessiofrittoli/date-utils'
 // or
-import formatDate from '@alessiofrittoli/date-utils/format'
+import { formatDate } from '@alessiofrittoli/date-utils/format'
 
 formatDate( '2024-11-24T12:00:00Z', 'Y-m-d H:i', 'en-US', 'America/New_York' )
 // Outputs: "2024-11-24 07:00" (formatted in the specified timezone)
 ```
 
 </details>
+
+---
 
 <details>
 
@@ -213,6 +221,8 @@ Each unit of time (years, months, weeks, days, etc.) is calculated in sequence, 
 
 </details>
 
+---
+
 <details>
 
 <summary>Returns</summary>
@@ -238,21 +248,23 @@ Input `100483200` seconds results in:
 
 ```ts
 {
-	years: 3,
-	months: 2,
-	weeks: 1,
-	days: 1,
-	hours: 0,
-	minutes: 0,
-	seconds: 0,
-	milliseconds: 0,
-	microseconds: 0,
+  years: 3,
+  months: 2,
+  weeks: 1,
+  days: 1,
+  hours: 0,
+  minutes: 0,
+  seconds: 0,
+  milliseconds: 0,
+  microseconds: 0,
 }
 ```
 
 This corresponds to 3 years, 2 months, 1 week, and 1 day, with no remaining hours, minutes, seconds, milliseconds, or microseconds.
 
 </details>
+
+---
 
 <details>
 
@@ -326,6 +338,8 @@ It leverages JavaScript's `Intl.DateTimeFormat` API to customize the output for 
 
 </details>
 
+---
+
 <details>
 
 <summary>Returns</summary>
@@ -333,6 +347,8 @@ It leverages JavaScript's `Intl.DateTimeFormat` API to customize the output for 
 The function returns a formatted date string based on the given `locale` and `options`.
 
 </details>
+
+---
 
 <details>
 
@@ -368,9 +384,9 @@ import { formatLocaleDate } from '@alessiofrittoli/date-utils'
 import { formatLocaleDate } from '@alessiofrittoli/date-utils/format'
 
 console.log( formatLocaleDate( new Date(), 'en-US', {
-	weekday	: 'long',
-	hour	: 'numeric',
-	minute	: 'numeric',
+  weekday : 'long',
+  hour    : 'numeric',
+  minute  : 'numeric',
 } ) )
 // Outputs: "Tuesday 7:09 PM"
 ```
@@ -383,11 +399,11 @@ import { formatLocaleDate } from '@alessiofrittoli/date-utils'
 import { formatLocaleDate } from '@alessiofrittoli/date-utils/format'
 
 console.log( formatLocaleDate( new Date( '2024-11-25T09:30:00.000Z' ), 'en-US', {
-	weekday		: 'long',
-	hour		: '2-digit',
-	minute		: '2-digit',
-	second		: '2-digit',
-	timeZone	: 'America/Los_Angeles',
+  weekday   : 'long',
+  hour      : '2-digit',
+  minute    : '2-digit',
+  second    : '2-digit',
+  timeZone  : 'America/Los_Angeles',
 } ) )
 // Outputs: "Monday 01:30:00 AM"
 ```
@@ -414,6 +430,8 @@ It leverages the [Intl.RelativeTimeFormat](https://developer.mozilla.org/en-US/d
 
 </details>
 
+---
+
 <details>
 
 <summary>Returns</summary>
@@ -423,6 +441,8 @@ A `string` representing the relative time in a human-readable format.
 
 </details>
 
+---
+
 <details>
 
 <summary>Usage</summary>
@@ -430,7 +450,7 @@ A `string` representing the relative time in a human-readable format.
 #### Basic usage
 
 ```ts
-import formatRelativeTime from '@alessiofrittoli/date-utils/format'
+import { formatRelativeTime } from '@alessiofrittoli/date-utils/format'
 
 console.log( formatRelativeTime() ) // Outputs: "now"
 ```
@@ -438,12 +458,12 @@ console.log( formatRelativeTime() ) // Outputs: "now"
 #### Two months ago
 
 ```ts
-import formatRelativeTime from '@alessiofrittoli/date-utils/format'
+import { formatRelativeTime } from '@alessiofrittoli/date-utils/format'
 
 const currentDate = new Date()
 
 console.log( formatRelativeTime(
-	new Date().setMonth( currentDate.getMonth() - 2 )
+  new Date().setMonth( currentDate.getMonth() - 2 )
 ) )
 // Outputs: "2 months ago"
 ```
@@ -451,12 +471,12 @@ console.log( formatRelativeTime(
 #### Last week
 
 ```ts
-import formatRelativeTime from '@alessiofrittoli/date-utils/format'
+import { formatRelativeTime } from '@alessiofrittoli/date-utils/format'
 
 const currentDate = new Date()
 
 console.log( formatRelativeTime(
-	new Date().setDate( currentDate.getDate() - 9 )
+  new Date().setDate( currentDate.getDate() - 9 )
 ) )
 // Outputs: "last week"
 ```
@@ -464,12 +484,12 @@ console.log( formatRelativeTime(
 #### Yesterday
 
 ```ts
-import formatRelativeTime from '@alessiofrittoli/date-utils/format'
+import { formatRelativeTime } from '@alessiofrittoli/date-utils/format'
 
 const currentDate = new Date()
 
 console.log( formatRelativeTime(
-	new Date().setDate( currentDate.getDate() - 1 )
+  new Date().setDate( currentDate.getDate() - 1 )
 ) )
 // Outputs: "yesterday"
 ```
@@ -477,13 +497,13 @@ console.log( formatRelativeTime(
 #### Yesterday - always numeric
 
 ```ts
-import formatRelativeTime from '@alessiofrittoli/date-utils/format'
+import { formatRelativeTime } from '@alessiofrittoli/date-utils/format'
 
-const currentDate	= new Date()
-const yesterdayDate	= new Date().setDate( currentDate.getDate() - 1 )
+const currentDate   = new Date()
+const yesterdayDate = new Date().setDate( currentDate.getDate() - 1 )
 
 console.log(
-	formatRelativeTime( yesterdayDate, undefined, { numeric: 'always' } )
+  formatRelativeTime( yesterdayDate, undefined, { numeric: 'always' } )
 )
 // Outputs: "1 day ago"
 ```
@@ -491,12 +511,12 @@ console.log(
 #### Custom locale
 
 ```ts
-import formatRelativeTime from '@alessiofrittoli/date-utils/format'
+import { formatRelativeTime } from '@alessiofrittoli/date-utils/format'
 
 const currentDate = new Date()
 
 console.log( formatRelativeTime(
-	new Date().setDate( currentDate.getDate() - 1 ), 'it-IT'
+  new Date().setDate( currentDate.getDate() - 1 ), 'it-IT'
 ) )
 // Outputs: "ieri"
 ```
@@ -504,12 +524,12 @@ console.log( formatRelativeTime(
 #### Future date
 
 ```ts
-import formatRelativeTime from '@alessiofrittoli/date-utils/format'
+import { formatRelativeTime } from '@alessiofrittoli/date-utils/format'
 
 const currentDate = new Date()
 
 console.log( formatRelativeTime(
-	new Date().setHours( currentDate.getHours() + 2 )
+  new Date().setHours( currentDate.getHours() + 2 )
 ) )
 // Outputs: "in 2 hours"
 ```
