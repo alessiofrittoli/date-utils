@@ -2,8 +2,9 @@
 
 [🔙 Back](../README.md)
 
-This module defines TypeScript types for timezone identifiers categorized by geographic regions.\
-These types are based on the constants provided in the identifiers module. See [Timezone Identifiers constants](#timezone-identifiers-constants) section for more informations.
+This module defines TypeScript types for timezone identifiers categorized by geographic regions.
+
+These types are based on the constants provided in the identifiers module. See [Timezone Identifiers constants](../constants/README.md)
 
 ## Types
 
@@ -79,14 +80,14 @@ Type:
 
 ```ts
 type Timezone = (
-	| OthersTimezone
-	| AfricaTimezone
-	| AmericaTimezone
-	| AsiaTimezone
-	| EuropeTimezone
-	| OceaniaTimezone
-	| AntarcticaTimezone
-	| AtlanticTimezone
+  | OthersTimezone
+  | AfricaTimezone
+  | AmericaTimezone
+  | AsiaTimezone
+  | EuropeTimezone
+  | OceaniaTimezone
+  | AntarcticaTimezone
+  | AtlanticTimezone
 )
 ```
 
@@ -128,8 +129,8 @@ import type { Timezone } from '@alessiofrittoli/date-utils'
 import type Timezone from '@alessiofrittoli/date-utils/timezones/types'
 
 const isValidTimezone = ( input: string ): input is Timezone => {
-	// Logic to validate against TIMEZONE_IDENTIFIERS constants
-	return true // Simplified
+  // Logic to validate against TIMEZONE_IDENTIFIERS constants
+  return true // Simplified
 }
 
 console.log( isValidTimezone( 'America/New_York' ) ) // true

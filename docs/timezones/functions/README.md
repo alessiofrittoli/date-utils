@@ -14,7 +14,8 @@ Returns the user's current timezone identifier based on their local system setti
 
 ### Returns
 
-Type: `Timezone`\
+Type: `Timezone`
+
 The current runtime timezone identifier (e.g., `"America/New_York"`, `"Europe/London"`, `"Asia/Tokyo"`).
 
 <details>
@@ -36,16 +37,16 @@ console.log( getCurrentTimeZoneId() )
 ```ts
 import { formatDate, getCurrentTimeZoneId } from '@alessiofrittoli/date-utils'
 // or
-import { getCurrentTimeZoneId } from '@alessiofrittoli/date-utils/timezones'
 import { formatLocaleDate } from '@alessiofrittoli/date-utils/format'
+import { getCurrentTimeZoneId } from '@alessiofrittoli/date-utils/timezones'
 
 const formattedDate = formatLocaleDate( new Date(), 'en-US', {
-	day		: '2-digit',
-	month	: 'long',
-	hour	: '2-digit',
-	minute	: '2-digit',
-	hour12	: false,
-	timeZone: getCurrentTimeZoneId(),
+  day     : '2-digit',
+  month   : 'long',
+  hour    : '2-digit',
+  minute  : '2-digit',
+  hour12  : false,
+  timeZone: getCurrentTimeZoneId(),
 } )
 console.log( `Today is ${ formattedDate } in your timezone.` )
 ```
@@ -74,6 +75,8 @@ The `getCurrentMachineDateTimezoneOffsetH` function retrieves the timezone offse
 
 </details>
 
+---
+
 <details>
 
 <summary>Returns</summary>
@@ -83,6 +86,8 @@ Type: `number`
 The timezone offset in hours from UTC, based on the current machine's timezone settings. Positive values indicate offsets ahead of UTC, and negative values indicate offsets behind UTC.
 
 </details>
+
+---
 
 <details>
 
@@ -117,11 +122,11 @@ import { getCurrentMachineDateTimezoneOffsetH } from '@alessiofrittoli/date-util
 // or
 import { getCurrentMachineDateTimezoneOffsetH } from '@alessiofrittoli/date-utils/timezones'
 
-const offsetNow		= getCurrentMachineDateTimezoneOffsetH()
-const offsetPast	= getCurrentMachineDateTimezoneOffsetH( '2000-01-01T12:00:00Z' )
+const offsetNow   = getCurrentMachineDateTimezoneOffsetH()
+const offsetPast  = getCurrentMachineDateTimezoneOffsetH( '2000-01-01T12:00:00Z' )
 
 if ( offsetNow !== offsetPast ) {
-	console.log( 'The machine timezone offset has changed over time.' )
+  console.log( 'The machine timezone offset has changed over time.' )
 }
 ```
 
@@ -146,6 +151,8 @@ If no valid GMT offset is found in the string, the function defaults to the curr
 
 </details>
 
+---
+
 <details>
 
 <summary>Returns</summary>
@@ -158,6 +165,8 @@ The timezone offset in hours extracted from the GMT offset in the input string.
 - Negative values indicate offsets behind UTC.
 
 </details>
+
+---
 
 <details>
 
@@ -194,8 +203,8 @@ import { getTimezoneHFromGMTDateString } from '@alessiofrittoli/date-utils'
 // or
 import { getTimezoneHFromGMTDateString } from '@alessiofrittoli/date-utils/timezones'
 
-const invalidString	= 'Fri Nov 29 2024 11:00:13'
-const isoString		= '2024-11-29T10:00:13.000Z'
+const invalidString = 'Fri Nov 29 2024 11:00:13'
+const isoString     = '2024-11-29T10:00:13.000Z'
 console.log( getTimezoneHFromGMTDateString( invalidString ) ) 
 // Outputs: N (fallbacks to the current machine Timezone offset)
 console.log( getTimezoneHFromGMTDateString( isoString ) ) 
@@ -229,6 +238,8 @@ It provides consistent results for various date representations and ensures that
 
 </details>
 
+---
+
 <details>
 
 <summary>Returns</summary>
@@ -241,6 +252,8 @@ The timezone offset in hours from UTC for the specified date and timezone.
 - Negative values indicate offsets behind UTC.
 
 </details>
+
+---
 
 <details>
 
@@ -337,6 +350,8 @@ The `getTimezoneOffsetHm` function retrieves the timezone offset for a specified
 
 </details>
 
+---
+
 <details>
 
 <summary>Returns</summary>
@@ -346,6 +361,8 @@ Type: `string`
 The timezone offset as a string formatted in `±hh:mm` (or `±hhmm` if separator is `false`).
 
 </details>
+
+---
 
 <details>
 
@@ -406,6 +423,8 @@ The `getTimezoneName` function retrieves a formatted timezone name based on the 
 
 </details>
 
+---
+
 <details>
 
 <summary>Returns</summary>
@@ -415,6 +434,8 @@ Type: `string`
 The formatted timezone name as a string, based on the provided options.
 
 </details>
+
+---
 
 <details>
 
@@ -439,8 +460,8 @@ import { getTimezoneName } from '@alessiofrittoli/date-utils'
 import { getTimezoneName } from '@alessiofrittoli/date-utils/timezones'
 
 console.log( getTimezoneName( {
-	date		: new Date( '2024-06-15' ),
-	timeZone	: 'America/New_York',
+  date    : new Date( '2024-06-15' ),
+  timeZone: 'America/New_York',
 } ) )
 // Outputs: "GMT-4" (during daylight saving time)
 ```
@@ -453,10 +474,10 @@ import { getTimezoneName } from '@alessiofrittoli/date-utils'
 import { getTimezoneName } from '@alessiofrittoli/date-utils/timezones'
 
 console.log( getTimezoneName( {
-	date			: new Date( '2024-06-01' ),
-	locale			: 'it-iT',
-	timeZone		: 'Europe/Rome',
-	timeZoneName	: 'long',
+  date          : new Date( '2024-06-01' ),
+  locale        : 'it-iT',
+  timeZone      : 'Europe/Rome',
+  timeZoneName  : 'long',
 } ) )
 // Outputs: "Ora legale dell’Europa centrale"
 ```

@@ -4,7 +4,8 @@
 
 ### `InSeconds` Enum
 
-The `InSeconds` enum is a utility that provides pre-defined constants for common time durations in seconds.\
+The `InSeconds` enum is a utility that provides pre-defined constants for common time durations in seconds.
+
 It is designed to simplify time-related calculations/convertions and improve code readability.
 
 <details>
@@ -26,6 +27,8 @@ It is designed to simplify time-related calculations/convertions and improve cod
 
 </details>
 
+---
+
 <details>
 
 <summary>Usage</summary>
@@ -41,7 +44,7 @@ import { InSeconds } from '@alessiofrittoli/date-utils/common'
 
 // Set a timeout for 10 minutes
 setTimeout( () => {
-    console.log( '10 minutes have passed!' )
+  console.log( '10 minutes have passed!' )
 }, InSeconds._10M )
 ```
 
@@ -64,7 +67,6 @@ import { InSeconds } from '@alessiofrittoli/date-utils/common'
 
 const totalTime = InSeconds._1Hour + InSeconds._30M; // 90 minutes in seconds
 console.log( `Total time in seconds: ${ totalTime }` )
-
 ```
 
 </details>
@@ -73,10 +75,12 @@ console.log( `Total time in seconds: ${ totalTime }` )
 
 ### isValidDate
 
-The `isValidDate` function checks whether a given value is a valid JavaScript `Date` object.\
+The `isValidDate` function checks whether a given value is a valid JavaScript `Date` object.
+
 This ensures both the type and the validity of the `Date` instance.
 
-The function acts as a type guard, narrowing the type of the checked variable to `Date` if the function returns true.\
+The function acts as a type guard, narrowing the type of the checked variable to `Date` if the function returns true.
+
 This is pretty usefull to check `Date` validity and safe access to properties and methods of the `Data` instance.
 
 <details>
@@ -88,6 +92,8 @@ This is pretty usefull to check `Date` validity and safe access to properties an
 | `d`       | `unknown` | The value to validate as a `Date`. |
 
 </details>
+
+---
 
 <details>
 
@@ -104,6 +110,8 @@ Returns false otherwise.
 
 </details>
 
+---
+
 <details>
 
 <summary>Usage</summary>
@@ -115,13 +123,13 @@ import { isValidDate } from '@alessiofrittoli/date-utils'
 // or
 import { isValidDate } from '@alessiofrittoli/date-utils/common'
 
-const validDate		= new Date( '2024-01-01' )
-const invalidDate	= new Date( 'invalid date string' )
-const nonDateValue	= '2024-01-01'
+const validDate     = new Date( '2024-01-01' )
+const invalidDate   = new Date( 'invalid date string' )
+const nonDateValue  = '2024-01-01'
 
-console.log( isValidDate( validDate ) )		// true
-console.log( isValidDate( invalidDate ) )	// false
-console.log( isValidDate( nonDateValue ) )	// false
+console.log( isValidDate( validDate ) )     // true
+console.log( isValidDate( invalidDate ) )   // false
+console.log( isValidDate( nonDateValue ) )  // false
 ```
 
 </details>
@@ -130,7 +138,8 @@ console.log( isValidDate( nonDateValue ) )	// false
 
 ### sortByDate
 
-The `sortByDate` function is a custom comparison function designed to be used with the `Array.prototype.sort()` method.\
+The `sortByDate` function is a custom comparison function designed to be used with the `Array.prototype.sort()` method.
+
 It sorts date values in either ascending or descending order, based on the specified sorting method.
 
 <details>
@@ -147,11 +156,14 @@ It sorts date values in either ascending or descending order, based on the speci
 
 </details>
 
+---
+
 <details>
 
 <summary>Returns</summary>
 
-Type: `number`\
+Type: `number`
+
 A number used by the sort() method to determine the order:
 
 - Negative value: `date1` comes before `date2`.
@@ -159,6 +171,8 @@ A number used by the sort() method to determine the order:
 - Positive value: `date1` comes after `date2`.
 
 </details>
+
+---
 
 <details>
 
@@ -198,7 +212,8 @@ console.log( dates )
 
 ### getTimeDiff
 
-The `getTimeDiff` function calculates the time difference in milliseconds between two dates.\
+The `getTimeDiff` function calculates the time difference in milliseconds between two dates.
+
 It provides a simple way to compute the difference, where the first date is considered the "future" date and the second date is the "older" one.
 
 <details>
@@ -212,17 +227,22 @@ It provides a simple way to compute the difference, where the first date is cons
 
 </details>
 
+---
+
 <details>
 
 <summary>Returns</summary>
 
-Type: `number`\
+Type: `number`
+
 The time difference in milliseconds between the `futureDate` and `olderDate`.
 
 - A positive value indicates that the `futureDate` is after the `olderDate`.
 - A negative value indicates the opposite.
 
 </details>
+
+---
 
 <details>
 
@@ -273,7 +293,8 @@ console.log( getTimeDiff( futureDate, olderDate ) ) // Outputs: 86400000 (1 day 
 
 ### combineDates
 
-The `combineDates` function allows for the combination of two dates by adding or subtracting a time value (in milliseconds) to/from a reference date.\
+The `combineDates` function allows for the combination of two dates by adding or subtracting a time value (in milliseconds) to/from a reference date.
+
 By default, it performs an addition operation but can handle negative time values to perform subtraction.
 
 <details>
@@ -290,14 +311,19 @@ By default, it performs an addition operation but can handle negative time value
 
 </details>
 
+---
+
 <details>
 
 <summary>Returns</summary>
 
-Type: `Date`\
+Type: `Date`
+
 A new `Date` object representing the resulting date after combining the specified time offset and reference date.
 
 </details>
+
+---
 
 <details>
 
@@ -331,7 +357,7 @@ import { combineDates } from '@alessiofrittoli/date-utils'
 // or
 import { combineDates } from '@alessiofrittoli/date-utils/common'
 
-console.log( combineDates( -120 * 1000, '2024-01-01T10:00:00') )
+console.log( combineDates( -120 * 1000, '2024-01-01T10:00:00' ) )
 // Outputs: 2024-01-01T09:58:00.000Z (2 minutes subtracted).
 ```
 
