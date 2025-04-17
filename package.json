@@ -104,21 +104,21 @@
 	},
 	"devDependencies": {
 		"@alessiofrittoli/node-scripts": "^2.4.0",
-		"@eslint/js": "^9.23.0",
+		"@eslint/js": "^9.24.0",
 		"@jest/globals": "^29.7.0",
 		"@types/jest": "^29.5.14",
-		"@types/node": "^22.13.13",
+		"@types/node": "^22.14.1",
 		"concurrently": "^9.1.2",
-		"dotenv": "^16.4.7",
-		"eslint": "^9.23.0",
+		"dotenv": "^16.5.0",
+		"eslint": "^9.24.0",
 		"globals": "^16.0.0",
 		"http-server": "^14.1.1",
 		"jest": "^29.7.0",
-		"ts-jest": "^29.3.0",
+		"ts-jest": "^29.3.2",
 		"ts-node": "^10.9.2",
 		"tsup": "^8.4.0",
-		"typescript": "^5.8.2",
-		"typescript-eslint": "^8.27.0"
+		"typescript": "^5.8.3",
+		"typescript-eslint": "^8.30.1"
 	},
 	"dependencies": {
 		"@alessiofrittoli/math-utils": "^1.11.0",
