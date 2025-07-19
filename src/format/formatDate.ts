@@ -70,7 +70,7 @@ import {
  * - `q`: Same as `Q` but without colon
  * - `R`: Timezone identifier - short
  * - `V`: Timezone identifier - short generic
- * - `T`: Timezone identifier - short offset
+ * - `o`: Timezone identifier - short offset
  * - `I`: Whether or not the date is in Daylight Saving Time - 1 if it in DST, 0 otherwise
  * - `O`: Difference to Greenwich time (GMT) without colon between hours and minutes
  * - `P`: Difference to Greenwich time (GMT) with colon between hours and minutes
@@ -81,6 +81,9 @@ import {
  * - `c`: ISO 8601 date
  * - `r`: » RFC 2822/» RFC 5322 formatted date
  * - `U`: Seconds since the Unix Epoch (January 1 1970 00:00:00 GMT)
+ * 
+ * Misc
+ * - `T`: Time divider
  * 
  * @returns	The formatted Date string.
  */
@@ -300,7 +303,7 @@ export const formatDate = (
 							timeZoneName	: 'shortGeneric'
 						} )
 					)
-				case 'T':
+				case 'o':
 					// Timezone identifier - short offset
 					return (
 						getTimezoneName( {
