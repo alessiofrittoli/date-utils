@@ -117,7 +117,7 @@ The following tokens can be used in the format string for custom formatting:
 | `q`   | Same as `Q` but without a colon     |
 | `R`   | Timezone identifier - short         |
 | `V`   | Timezone identifier - short generic |
-| `T`   | Timezone identifier - short offset  |
+| `o`   | Timezone identifier - short offset  |
 | `I`   | Daylight Saving Time - 1 in DST, 0 otherwise |
 | `O`   | Difference to GMT without a colon   |
 | `P`   | Difference to GMT with a colon      |
@@ -133,6 +133,14 @@ The following tokens can be used in the format string for custom formatting:
 | `c`   | ISO 8601 date                    |
 | `r`   | RFC 2822/RFC 5322 formatted date |
 | `U`   | Seconds since Unix Epoch         |
+
+---
+
+#### Miscellaneous
+
+| Token | Description                      |
+|-------|----------------------------------|
+| `T`   | Time divider                     |
 
 </details>
 

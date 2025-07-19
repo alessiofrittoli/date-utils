@@ -26,6 +26,7 @@ Everything is exported from the root of this library but specific paths can be u
 ### Table of Contents
 
 - [Getting started](#getting-started)
+- [What's Changed](#whats-changed)
 - What's inside
   - [Common utilities](https://github.com/alessiofrittoli/date-utils/blob/master/docs/common/README.md)
   - [Formatting functions](https://github.com/alessiofrittoli/date-utils/blob/master/docs/format/README.md)
@@ -55,6 +56,18 @@ or using `pnpm`
 ```bash
 pnpm i @alessiofrittoli/date-utils
 ```
+
+---
+
+### What's Changed
+
+#### Updates in the latest release 🎉
+
+- `formatDate`
+  - token `T` now outputs time divider.
+  - Timezone identifier - short offset is now returned by `o` token.
+
+---
 
 ### Development
 

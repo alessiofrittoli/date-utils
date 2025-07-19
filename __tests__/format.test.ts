@@ -54,7 +54,7 @@ describe( 'formatDate', () => {
 			q: 'GMT+0200',
 			R: 'GMT+2',
 			V: 'Italy Time',
-			T: 'GMT+2',
+			o: 'GMT+2',
 			I: '1',
 			O: '+0200',
 			P: '+02:00',
@@ -63,6 +63,7 @@ describe( 'formatDate', () => {
 			c: '2024-04-20T16:20:35.420Z',
 			r: 'Sat Apr 20 2024 18:20:35 GMT+0200 (Central European Summer Time)',
 			U: '1713630035.42',
+			T: 'T',
 		}
 		const tokens	= Object.keys( tokensMap ).join( ' - ' )
 		const expected	= Object.values( tokensMap ).join( ' - ' )		
