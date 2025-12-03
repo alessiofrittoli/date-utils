@@ -37,39 +37,74 @@
 	],
 	"exports": {
 		".": {
-			"types": "./dist/index.d.ts",
-			"import": "./dist/index.mjs",
-			"require": "./dist/index.js"
+			"import": {
+				"types": "./dist/index.d.mts",
+				"default": "./dist/index.mjs"
+			},
+			"require": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.js"
+			}
 		},
 		"./format": {
-			"types": "./dist/format/index.d.ts",
-			"import": "./dist/format/index.mjs",
-			"require": "./dist/format/index.js"
+			"import": {
+				"types": "./dist/format/index.d.mts",
+				"default": "./dist/format/index.mjs"
+			},
+			"require": {
+				"types": "./dist/format/index.d.ts",
+				"default": "./dist/format/index.js"
+			}
 		},
 		"./timezones": {
-			"types": "./dist/timezones/index.d.ts",
-			"import": "./dist/timezones/index.mjs",
-			"require": "./dist/timezones/index.js"
+			"import": {
+				"types": "./dist/timezones/index.d.mts",
+				"default": "./dist/timezones/index.mjs"
+			},
+			"require": {
+				"types": "./dist/timezones/index.d.ts",
+				"default": "./dist/timezones/index.js"
+			}
 		},
 		"./timezones/identifiers": {
-			"types": "./dist/timezones/identifiers.d.ts",
-			"import": "./dist/timezones/identifiers.mjs",
-			"require": "./dist/timezones/identifiers.js"
+			"import": {
+				"types": "./dist/timezones/identifiers.d.mts",
+				"default": "./dist/timezones/identifiers.mjs"
+			},
+			"require": {
+				"types": "./dist/timezones/identifiers.d.ts",
+				"default": "./dist/timezones/identifiers.js"
+			}
 		},
 		"./timezones/types": {
-			"types": "./dist/timezones/types.d.ts",
-			"import": "./dist/timezones/types.mjs",
-			"require": "./dist/timezones/types.js"
+			"import": {
+				"types": "./dist/timezones/types.d.mts",
+				"default": "./dist/timezones/types.mjs"
+			},
+			"require": {
+				"types": "./dist/timezones/types.d.ts",
+				"default": "./dist/timezones/types.js"
+			}
 		},
 		"./common": {
-			"types": "./dist/common.d.ts",
-			"import": "./dist/common.mjs",
-			"require": "./dist/common.js"
+			"import": {
+				"types": "./dist/common.d.mts",
+				"default": "./dist/common.mjs"
+			},
+			"require": {
+				"types": "./dist/common.d.ts",
+				"default": "./dist/common.js"
+			}
 		},
 		"./utils": {
-			"types": "./dist/utils.d.ts",
-			"import": "./dist/utils.mjs",
-			"require": "./dist/utils.js"
+			"import": {
+				"types": "./dist/utils.d.mts",
+				"default": "./dist/utils.mjs"
+			},
+			"require": {
+				"types": "./dist/utils.d.ts",
+				"default": "./dist/utils.js"
+			}
 		}
 	},
 	"sideEffects": false,
@@ -104,26 +139,26 @@
 		"test:utils": "pnpm test:watch utils.test.ts"
 	},
 	"devDependencies": {
-		"@alessiofrittoli/node-scripts": "^3.0.0",
-		"@eslint/js": "^9.31.0",
-		"@jest/globals": "^30.0.4",
+		"@alessiofrittoli/node-scripts": "^3.2.0",
+		"@eslint/js": "^9.39.1",
+		"@jest/globals": "^30.2.0",
 		"@types/jest": "^30.0.0",
-		"@types/node": "^24.0.15",
-		"concurrently": "^9.2.0",
-		"cross-env": "^7.0.3",
-		"dotenv": "^17.2.0",
-		"eslint": "^9.31.0",
-		"globals": "^16.3.0",
+		"@types/node": "^24.10.1",
+		"concurrently": "^9.2.1",
+		"cross-env": "^10.1.0",
+		"dotenv": "^17.2.3",
+		"eslint": "^9.39.1",
+		"globals": "^16.5.0",
 		"http-server": "^14.1.1",
-		"jest": "^30.0.4",
-		"ts-jest": "^29.4.0",
+		"jest": "^30.2.0",
+		"ts-jest": "^29.4.6",
 		"ts-node": "^10.9.2",
-		"tsup": "^8.5.0",
-		"typescript": "^5.8.3",
-		"typescript-eslint": "^8.37.0"
+		"tsup": "^8.5.1",
+		"typescript": "^5.9.3",
+		"typescript-eslint": "^8.48.1"
 	},
 	"dependencies": {
-		"@alessiofrittoli/math-utils": "^1.14.0",
-		"@alessiofrittoli/type-utils": "^1.8.0"
+		"@alessiofrittoli/math-utils": "^1.16.0",
+		"@alessiofrittoli/type-utils": "^1.9.0"
 	}
 }
