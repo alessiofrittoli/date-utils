@@ -1,20 +1,17 @@
-import { InSeconds } from '@/common'
 import { formatLocaleDate, secondsToUnit } from '@/format'
 import { formatDate, formatRelativeTime } from '@/format'
+import { describe, expect, it } from 'vitest'
+import { InSeconds } from '@/common'
 
+describe('formatDate', () => {
+	it('formats a date with no parameters', () => {
+		const formatted = new Intl.DateTimeFormat(undefined).format(new Date())
 
-describe( 'formatDate', () => {
+		expect(formatDate()).toBe(formatted)
+	})
 
-	it( 'formats a date with no parameters', () => {
-		const formatted = new Intl.DateTimeFormat( undefined )
-			.format( new Date() )
-
-		expect( formatDate() ).toBe( formatted )
-	} )
-
-
-	it( 'formats a date with tokenized parameter', () => {
-		const date		= new Date( '2024-04-20T16:20:35.420Z' )
+	it('formats a date with tokenized parameter', () => {
+		const date = new Date('2024-04-20T16:20:35.420Z')
 		const tokensMap = {
 			d: '20',
 			j: '20',
@@ -65,218 +62,171 @@ describe( 'formatDate', () => {
 			U: '1713630035.42',
 			T: 'T',
 		}
-		const tokens	= Object.keys( tokensMap ).join( ' - ' )
-		const expected	= Object.values( tokensMap ).join( ' - ' )		
-		
-		expect( formatDate( date, tokens, 'en-US', 'Europe/Rome' ) )
-			.toBe( expected )
-		
-	} )
+		const tokens = Object.keys(tokensMap).join(' - ')
+		const expected = Object.values(tokensMap).join(' - ')
 
+		expect(formatDate(date, tokens, 'en-US', 'Europe/Rome')).toBe(expected)
+	})
 
-	it( 'returns Z instead of +00:00 with `p` token', () => {
-		expect( formatDate( new Date( '2024-04-20T16:20:35.420Z' ), 'p', 'en-US', 'UTC' ) )
-			.toBe( 'Z' )
-	} )
+	it('returns Z instead of +00:00 with `p` token', () => {
+		expect(formatDate(new Date('2024-04-20T16:20:35.420Z'), 'p', 'en-US', 'UTC')).toBe('Z')
+	})
 
-
-	it( 'formats a date with Intl.DateTimeFormatOptions parameter', () => {
-		const formatted = (
-			formatDate( '2024-11-24', {
-				year	: 'numeric',
-				month	: 'long',
-				day		: 'numeric',
-			}, 'en-US' )
+	it('formats a date with Intl.DateTimeFormatOptions parameter', () => {
+		const formatted = formatDate(
+			'2024-11-24',
+			{
+				year: 'numeric',
+				month: 'long',
+				day: 'numeric',
+			},
+			'en-US',
 		)
-		expect( formatted ).toBe( 'November 24, 2024' )
-	} )
+		expect(formatted).toBe('November 24, 2024')
+	})
 
+	it('formats a date with the current Timezone', () => {
+		expect(formatDate('2024-11-24T21:20:00.000Z', 'e', 'en-US')).toBeTruthy() // cannot test it's result since it depends on the current machine Timezone.
+	})
 
-	it( 'formats a date with the current Timezone', () => {
+	it('formats a date with the given Timezone', () => {
+		expect(formatDate('2024-11-24T21:20:00.000Z', 'Y-m-d g.i A', 'en-US', 'America/New_York')).toBe(
+			'2024-11-24 4.20 PM',
+		)
+	})
+})
 
-		expect( formatDate( '2024-11-24T21:20:00.000Z', 'e', 'en-US' ) )
-			.toBeTruthy() // cannot test it's result since it depends on the current machine Timezone.
+describe('secondsToUnit', () => {
+	const years = 3 * InSeconds._1Year
+	const months = 2 * InSeconds._1Month
+	const nDays = 25
+	const days = nDays * InSeconds._1Day
+	const hours = 4 * InSeconds._1Hour
+	const minutes = 35 * InSeconds._1M
+	const seconds = 23
+	const milliseconds = 230 * InSeconds._1ms
+	const microseconds = 245 * InSeconds._1us
+	const total = years + months + days + hours + minutes + seconds + milliseconds + microseconds
 
-	} )
+	it('converts seconds to the right units', () => {
+		expect(secondsToUnit(total)).toStrictEqual(
+			expect.objectContaining({
+				years: 3,
+				months: 2,
+				weeks: 3,
+				days: 4,
+				hours: 4,
+				minutes: 35,
+				seconds: 23,
+				milliseconds: 230,
+				microseconds: 245,
+			}),
+		)
+	})
 
+	it('converts seconds to the right units with negative value', () => {
+		expect(secondsToUnit(total * -1)).toStrictEqual(
+			expect.objectContaining({
+				years: -3,
+				months: -2,
+				weeks: -3,
+				days: -4,
+				hours: -4,
+				minutes: -35,
+				seconds: -23,
+				milliseconds: -230,
+				microseconds: -245,
+			}),
+		)
+	})
 
-	it( 'formats a date with the given Timezone', () => {
-
-		expect( formatDate( '2024-11-24T21:20:00.000Z', 'Y-m-d g.i A', 'en-US', 'America/New_York' ) )
-			.toBe( '2024-11-24 4.20 PM' )
-
-	} )
-
-} )
-
-describe( 'secondsToUnit', () => {
-
-	const years			= 3 * InSeconds._1Year
-	const months		= 2 * InSeconds._1Month
-	const nDays			= 25
-	const days			= nDays * InSeconds._1Day
-	const hours			= 4 * InSeconds._1Hour
-	const minutes		= 35 * InSeconds._1M
-	const seconds		= 23
-	const milliseconds	= 230 * InSeconds._1ms
-	const microseconds	= 245 * InSeconds._1us
-	const total			= years + months + days + hours + minutes + seconds + milliseconds + microseconds
-	
-
-	it( 'converts seconds to the right units', () => {
-		
-		expect( secondsToUnit( total ) )
-			.toStrictEqual( expect.objectContaining( {
-				years			: 3,
-				months			: 2,
-				weeks			: 3,
-				days			: 4,
-				hours			: 4,
-				minutes			: 35,
-				seconds			: 23,
-				milliseconds	: 230,
-				microseconds	: 245,
-			} ) )
-
-	} )
-
-
-	it( 'converts seconds to the right units with negative value', () => {
-		
-		expect( secondsToUnit( total * -1 ) )
-			.toStrictEqual( expect.objectContaining( {
-				years			: -3,
-				months			: -2,
-				weeks			: -3,
-				days			: -4,
-				hours			: -4,
-				minutes			: -35,
-				seconds			: -23,
-				milliseconds	: -230,
-				microseconds	: -245,
-			} ) )
-
-	} )
-
-
-	it( 'splits units', () => {
-		
+	it('splits units', () => {
 		const ninetyMinutes = InSeconds._1Hour + InSeconds._30M
-		const { hours, minutes } = secondsToUnit( ninetyMinutes )
-		
-		expect( hours ).toBe( 1 )
-		expect( minutes ).toBe( 30 )
+		const { hours, minutes } = secondsToUnit(ninetyMinutes)
 
-	} )
+		expect(hours).toBe(1)
+		expect(minutes).toBe(30)
+	})
 
+	it('skips weeks', () => {
+		const result = secondsToUnit(total, true)
 
-	it( 'skips weeks', () => {
+		expect(result.weeks).toBe(null)
+		expect(result.days).toBe(nDays)
+	})
 
-		const result = secondsToUnit( total, true )
+	it('skips weeks with negative value', () => {
+		const result = secondsToUnit(total * -1, true)
 
-		expect( result.weeks ).toBe( null )
-		expect( result.days ).toBe( nDays )
+		expect(result.weeks).toBe(null)
+		expect(result.days).toBe(nDays * -1)
+	})
+})
 
-	} )
+describe('formatLocaleDate', () => {
+	const date = new Date('2024-04-20T14:20:00.000Z')
 
+	it('formats the current Date', () => {
+		expect(typeof formatLocaleDate()).toBe('string')
+	})
 
-	it( 'skips weeks with negative value', () => {
-		
-		const result = secondsToUnit( total * -1, true )
+	it('formats a date with custom locale', () => {
+		expect(formatLocaleDate(date, 'it-IT')).toBe('20 aprile 2024')
+	})
 
-		expect( result.weeks ).toBe( null )
-		expect( result.days ).toBe( nDays * -1 )
-
-	} )
-
-} )
-
-describe( 'formatLocaleDate', () => {
-
-	const date = new Date( '2024-04-20T14:20:00.000Z' )
-
-	it( 'formats the current Date', () => {
-		expect( typeof formatLocaleDate() ).toBe( 'string' )
-	} )
-
-
-	it( 'formats a date with custom locale', () => {
-		expect( formatLocaleDate( date, 'it-IT' ) ).toBe( '20 aprile 2024' )
-	} )
-
-
-	it( 'formats a date with custom options', () => {
-
+	it('formats a date with custom options', () => {
 		expect(
-			formatLocaleDate( date, 'it-IT', {
-				day		: '2-digit',
-				month	: 'long',
-				hour	: '2-digit',
-				minute	: '2-digit',
-				hour12	: false,
+			formatLocaleDate(date, 'it-IT', {
+				day: '2-digit',
+				month: 'long',
+				hour: '2-digit',
+				minute: '2-digit',
+				hour12: false,
 				timeZone: 'Europe/Rome',
-			} )
-		).toBe( '20 aprile alle ore 16:20' )
+			}),
+		).toBe('20 aprile alle ore 16:20')
+	})
 
-	} )
+	it('formats a date with a custom timezone identifier', () => {})
+	expect(
+		formatLocaleDate(date, 'en-US', {
+			day: '2-digit',
+			month: 'long',
+			hour: '2-digit',
+			minute: '2-digit',
+			hour12: false,
+			timeZone: 'America/New_York',
+		}),
+	).toBe('April 20 at 10:20')
+})
 
+describe('formatRelativeTime', () => {
+	it('formats relative time', () => {
+		expect(formatRelativeTime()).toBe('now')
+	})
 
-	it( 'formats a date with a custom timezone identifier', () => {} )
-		expect(
-			formatLocaleDate( date, 'en-US', {
-				day		: '2-digit',
-				month	: 'long',
-				hour	: '2-digit',
-				minute	: '2-digit',
-				hour12	: false,
-				timeZone: 'America/New_York',
-			} )
-		).toBe( 'April 20 at 10:20' )
-} )
-
-describe( 'formatRelativeTime', () => {
-
-	it( 'formats relative time', () => {
-
-		expect( formatRelativeTime() ).toBe( 'now' )
-
-	} )
-
-
-	it( 'formats past dates', () => {
+	it('formats past dates', () => {
 		const currentDate = new Date()
 
-		expect( formatRelativeTime(
-			new Date().setMonth( currentDate.getMonth() - 2 )
-		) ).toBe( '2 months ago' )
-	} )
+		expect(formatRelativeTime(new Date().setMonth(currentDate.getMonth() - 2))).toBe('2 months ago')
+	})
 
-
-	it( 'formats future dates', () => {
+	it('formats future dates', () => {
 		const currentDate = new Date()
 
-		expect( formatRelativeTime(
-			new Date().setHours( currentDate.getHours() + 2 )
-		) ).toBe( 'in 2 hours' )
-	} )
-	
-	
-	it( 'formats dates with a custom locale', () => {
+		expect(formatRelativeTime(new Date().setHours(currentDate.getHours() + 2))).toBe('in 2 hours')
+	})
+
+	it('formats dates with a custom locale', () => {
 		const currentDate = new Date()
-	
-		expect( formatRelativeTime(
-			new Date().setDate( currentDate.getDate() - 1 ), 'it-IT'
-		) ).toBe( 'ieri' )
-	} )
 
+		expect(formatRelativeTime(new Date().setDate(currentDate.getDate() - 1), 'it-IT')).toBe('ieri')
+	})
 
-	it( 'formats dates with a custom options', () => {
-		const currentDate	= new Date()
-		const yesterdayDate	= new Date().setDate( currentDate.getDate() - 1 )
+	it('formats dates with a custom options', () => {
+		const currentDate = new Date()
+		const yesterdayDate = new Date().setDate(currentDate.getDate() - 1)
 
-		expect(
-			formatRelativeTime( yesterdayDate, undefined, { numeric: 'always' } )
-		).toBe( '1 day ago' )
-	} )
-
-} )
+		expect(formatRelativeTime(yesterdayDate, undefined, { numeric: 'always' })).toBe('1 day ago')
+	})
+})
