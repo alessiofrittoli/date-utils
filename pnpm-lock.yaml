@@ -10,16 +10,16 @@ importers:
     devDependencies:
       '@alessiofrittoli/math-utils':
         specifier: ^2.1.0
-        version: 2.1.0(@alessiofrittoli/web-utils@1.17.0)
+        version: 2.1.0(@alessiofrittoli/web-utils@2.3.0)
       '@alessiofrittoli/node-scripts':
         specifier: ^4.1.0
-        version: 4.1.0(@alessiofrittoli/abort-controller@0.1.0)(@alessiofrittoli/exception@3.2.0)(@alessiofrittoli/package-configs@1.6.0(oxlint@1.88.0)(prettier-plugin-sort-imports@1.8.11(typescript@6.0.3))(prettier@3.9.10)(tsdown@0.23.1(typescript@6.0.3))(typescript@6.0.3)(vite@8.3.4(@types/node@24.19.2)(esbuild@0.27.0))(vitest@5.0.4))(@alessiofrittoli/web-utils@1.17.0)
+        version: 4.1.0(@alessiofrittoli/abort-controller@0.1.0)(@alessiofrittoli/exception@4.1.0)(@alessiofrittoli/package-configs@1.6.0(oxlint@1.88.0)(prettier-plugin-sort-imports@1.8.11(typescript@6.0.3))(prettier@3.9.10)(tsdown@0.23.1(typescript@6.0.3))(typescript@6.0.3)(vite@8.3.4(@types/node@24.19.2)(esbuild@0.27.0))(vitest@5.0.4))(@alessiofrittoli/web-utils@2.3.0)
       '@alessiofrittoli/package-configs':
         specifier: ^1.6.0
         version: 1.6.0(oxlint@1.88.0)(prettier-plugin-sort-imports@1.8.11(typescript@6.0.3))(prettier@3.9.10)(tsdown@0.23.1(typescript@6.0.3))(typescript@6.0.3)(vite@8.3.4(@types/node@24.19.2)(esbuild@0.27.0))(vitest@5.0.4)
       '@alessiofrittoli/type-utils':
         specifier: ^2.0.0
-        version: 2.0.0(@alessiofrittoli/chain-functions@2.5.0)(@alessiofrittoli/node-scripts@4.1.0)
+        version: 2.0.0(@alessiofrittoli/chain-functions@2.7.0)(@alessiofrittoli/node-scripts@4.1.0)
       '@types/node':
         specifier: ^24.19.1
         version: 24.19.2
@@ -31,7 +31,7 @@ importers:
         version: 10.0.6
       http-server:
         specifier: ^14.1.1
-        version: 14.1.1
+        version: 14.1.1(debug@4.4.1(supports-color@10.2.2))(supports-color@10.2.2)
       oxlint:
         specifier: ^1.88.0
         version: 1.88.0
@@ -59,23 +59,39 @@ packages:
   '@alessiofrittoli/abort-controller@0.1.0':
     resolution: {integrity: sha512-bVx5XvRT33AOqFI7yvelOEsIVrs6myMzQYQujCjAX5DDRYOA0P9YuR/dVSZmxDLOs5ZKzD4z/6+zKJt1imvtEw==}
 
-  '@alessiofrittoli/chain-functions@2.5.0':
-    resolution: {integrity: sha512-T880cNaHMIU11vj3Qn4gEusew1ZcuCoWNEgwX9RzlGNmElxW/Td580+kT7y2QXO1BWBlXsvHRhbRMPIpAyTTYw==}
+  '@alessiofrittoli/chain-functions@2.7.0':
+    resolution: {integrity: sha512-Ftx1io+HfehIk1i1SZXn9gsFJloSHQLJyQhu67cPhoKz8ZWRETe6In00pKQzD6qVapDU3g5LiAZevz10+Uy+IQ==}
+    engines: {node: '>=24.15.0', pnpm: '>=11.27.1'}
 
-  '@alessiofrittoli/date-utils@4.0.0':
-    resolution: {integrity: sha512-yS8VdSIBlkN3PFgarcQ9AGJMUqofPQt12UygKBfmJBCwpOxT3JqZPRGlFVC4fQwaZzwOcFP65T4nRRmTBO+NWA==}
+  '@alessiofrittoli/date-utils@4.1.0':
+    resolution: {integrity: sha512-87yQ/LrY63pCUIj6MUfAeGY2RGQG9eRKvfR7yc8cF59oiXxAuHz+qUbqCiH9dmzwtwCDtOjInEoeVYR8nKNyMA==}
 
-  '@alessiofrittoli/exception@3.2.0':
-    resolution: {integrity: sha512-YwkeQTXrIo1Iy1yA0htonNmiTC1CUL324dlC3GIKhulmWzTDjqZVXT8tBsBjhvdGLkCxj4MMvkdg/Oa9ucOspg==}
+  '@alessiofrittoli/event-emitter@1.7.0':
+    resolution: {integrity: sha512-LPLN0fTjT5xlXn4C8S1yMiMk7seHBbiR7kwX4kynDewwCwwOpVR7BoF7cTtVwhTzDjfJBiu19X1lKiUAbcmk8Q==}
+    engines: {node: '>=24.15.0', pnpm: '>=11.27.1'}
 
-  '@alessiofrittoli/math-utils@1.16.0':
-    resolution: {integrity: sha512-wMeIKFzPDAv1+ioBiVeiYql3JYpfsSfInpuiFVc1kpSRiOSE1O/AnQKbIGu3JW+SXlG8DKrS7u8QR3Z/2irwWg==}
+  '@alessiofrittoli/exception@3.5.0':
+    resolution: {integrity: sha512-8WGEiJCr9zFgPzXvTl5Sgh+e1bBldGfMma4EGIa+yLeHpgmsS+zQ8d7woh2YU/yN65DoKGHPKTArWLAvnEwANg==}
+
+  '@alessiofrittoli/exception@4.1.0':
+    resolution: {integrity: sha512-qYShREQT4vcw2n9lDhxsARBOxI5jc8SFl9L9JyRU2dghTgXPNz0M4fLX3dC1to67YQQpv+JaZlCndz24CoIuag==}
+    engines: {node: '>=24.15.0', pnpm: '>=11.27.1'}
+
+  '@alessiofrittoli/fetcher@1.1.0':
+    resolution: {integrity: sha512-JidJxeL8AMm6k2g6AcG368nQmqskh7Hz7CfYnJEBg+BP03MuQQ0MBQpgXCLeyTFkGdtlrY6sMOBP6vk3xG/q+g==}
+
+  '@alessiofrittoli/math-utils@1.18.0':
+    resolution: {integrity: sha512-dXy9dDk8QpDAbbxAsmHqBG8XqcQr5JG+iTyCjzg1FIADo40PLEqjsSzy3WmLr7P62amahjkFRWDLRLQsTQHpnQ==}
 
   '@alessiofrittoli/math-utils@2.1.0':
     resolution: {integrity: sha512-o+lgfMt8iA9Gbh7hn86yhVjhocS+w+sue86GIzUO/lCvg2KSj0Fhxg65EbOAnRDH07sv58oaRj7ehlRWFguL5w==}
     engines: {node: '>=24.15.0', pnpm: '>=11.27.1'}
     peerDependencies:
       '@alessiofrittoli/web-utils': ^2.3.0
+
+  '@alessiofrittoli/node-scripts@3.5.0':
+    resolution: {integrity: sha512-mRrZEGibFttjaHfoLNuPVlKgVw9CUnMw6QU5RNVjwRw2QNNurUjIbWEjIDciZsTYcDiDBYmC98LsZkRIcKiU+w==}
+    engines: {node: '>=24.15.0', pnpm: '>=11.27.1'}
 
   '@alessiofrittoli/node-scripts@4.1.0':
     resolution: {integrity: sha512-cguVlXyBVzSaOciwaazaUcakFof9teov8GV8A9c1Xm1rkK5D/RPBEF333iMOPcojJ/9MGPCJgXPFe6VnkXWXnQ==}
@@ -137,11 +153,17 @@ packages:
       '@alessiofrittoli/chain-functions': ^2.7.0
       '@alessiofrittoli/node-scripts': ^4.1.0
 
-  '@alessiofrittoli/url-utils@3.5.0':
-    resolution: {integrity: sha512-NISzE+Y+6iJPqPMrdbB8jNo3zXgMKI4FsfqRyMzy2oyC713ihoqA01eVhv4NzIq0wfny+ac6+fzzrFvN470FQQ==}
+  '@alessiofrittoli/url-utils@3.7.1':
+    resolution: {integrity: sha512-d4IY0H2lQoXt8Iq3riD7nYvfa+VEAnkBh2R9mvZNxbqQo0TmGc32+mf0w+FKviZ/xth2JhusVoSG804dHXHIdg==}
 
-  '@alessiofrittoli/web-utils@1.17.0':
-    resolution: {integrity: sha512-YvCz0bRlpgmjbwheuW8PYzP+9Alqe7hWmWjB5txmXNZ5584joCqiMrLTEleN/E+HI85gUXb4hX/SyqE4imodJA==}
+  '@alessiofrittoli/url-utils@4.0.0':
+    resolution: {integrity: sha512-MFtsYYNH2HnwasxkdTZ/Emgjzu1vwoI0bGeC6RXpX4Vv3W3AQDUdaEcFtD+r0nFXwt0tDbg4b+5ynUCZ+/oyiA==}
+
+  '@alessiofrittoli/web-utils@1.20.0':
+    resolution: {integrity: sha512-433XOudif9a9TfU7EZr+GvedeUoVFk1CnuMKUL00Gdw/hJZLiyEjzO90oVHn+KVwR5x+Ig4/9JWBVS69VCfvHA==}
+
+  '@alessiofrittoli/web-utils@2.3.0':
+    resolution: {integrity: sha512-j5QOHYMn6XRWDPlcet0BEEs2859qTGKXW3GEALJDHa1SfR2YHeCA9iZoR4GbwTikXzctWdHq5zAXRqUqrNsilg==}
 
   '@babel/helper-string-parser@7.29.7':
     resolution: {integrity: sha512-Pb5ijPrZ89GDH8223L4UP8i6QApWxs04RbPQJTeWDV0/keR2E36MeKnyr6LYmUUvqRRI+Iv87SuF1W6ErINzYw==}
@@ -818,8 +840,8 @@ packages:
       picomatch:
         optional: true
 
-  follow-redirects@1.15.9:
-    resolution: {integrity: sha512-gew4GsXizNgdoRyqmyfMHyAmXsZDk6mHkSxZFCzW9gwlbtOW44CDtYavM+y+72qD/Vq2l550kMF52DT8fOLJqQ==}
+  follow-redirects@1.16.1:
+    resolution: {integrity: sha512-FNvFGzoMLWmE6Yj9spb/zjd7yiNCHiAW9/Tg9CXrQ8wuu32HtlJOwWO11OJafl5FfY3DxTdQ0vj42zU1kvv5jg==}
     engines: {node: '>=4.0'}
     peerDependencies:
       debug: '*'
@@ -1356,37 +1378,76 @@ snapshots:
 
   '@alessiofrittoli/abort-controller@0.1.0':
     dependencies:
-      '@alessiofrittoli/exception': 3.2.0
+      '@alessiofrittoli/exception': 3.5.0
 
-  '@alessiofrittoli/chain-functions@2.5.0': {}
+  '@alessiofrittoli/chain-functions@2.7.0': {}
 
-  '@alessiofrittoli/date-utils@4.0.0(@alessiofrittoli/chain-functions@2.5.0)(@alessiofrittoli/node-scripts@4.1.0)':
+  '@alessiofrittoli/date-utils@4.1.0(@alessiofrittoli/chain-functions@2.7.0)(@alessiofrittoli/node-scripts@3.5.0)':
     dependencies:
-      '@alessiofrittoli/math-utils': 1.16.0(@alessiofrittoli/chain-functions@2.5.0)(@alessiofrittoli/node-scripts@4.1.0)
-      '@alessiofrittoli/type-utils': 1.10.1(@alessiofrittoli/chain-functions@2.5.0)(@alessiofrittoli/node-scripts@4.1.0)
+      '@alessiofrittoli/math-utils': 1.18.0(@alessiofrittoli/chain-functions@2.7.0)(@alessiofrittoli/node-scripts@3.5.0)
+      '@alessiofrittoli/type-utils': 1.10.1(@alessiofrittoli/chain-functions@2.7.0)(@alessiofrittoli/node-scripts@3.5.0)
     transitivePeerDependencies:
       - '@alessiofrittoli/chain-functions'
       - '@alessiofrittoli/node-scripts'
 
-  '@alessiofrittoli/exception@3.2.0': {}
-
-  '@alessiofrittoli/math-utils@1.16.0(@alessiofrittoli/chain-functions@2.5.0)(@alessiofrittoli/node-scripts@4.1.0)':
+  '@alessiofrittoli/date-utils@4.1.0(@alessiofrittoli/chain-functions@2.7.0)(@alessiofrittoli/node-scripts@4.1.0)':
     dependencies:
-      '@alessiofrittoli/web-utils': 1.17.0(@alessiofrittoli/chain-functions@2.5.0)(@alessiofrittoli/node-scripts@4.1.0)
+      '@alessiofrittoli/math-utils': 1.18.0(@alessiofrittoli/chain-functions@2.7.0)(@alessiofrittoli/node-scripts@4.1.0)
+      '@alessiofrittoli/type-utils': 1.10.1(@alessiofrittoli/chain-functions@2.7.0)(@alessiofrittoli/node-scripts@4.1.0)
     transitivePeerDependencies:
       - '@alessiofrittoli/chain-functions'
       - '@alessiofrittoli/node-scripts'
 
-  '@alessiofrittoli/math-utils@2.1.0(@alessiofrittoli/web-utils@1.17.0)':
-    dependencies:
-      '@alessiofrittoli/web-utils': 1.17.0(@alessiofrittoli/chain-functions@2.5.0)(@alessiofrittoli/node-scripts@4.1.0)
+  '@alessiofrittoli/event-emitter@1.7.0': {}
 
-  '@alessiofrittoli/node-scripts@4.1.0(@alessiofrittoli/abort-controller@0.1.0)(@alessiofrittoli/exception@3.2.0)(@alessiofrittoli/package-configs@1.6.0(oxlint@1.88.0)(prettier-plugin-sort-imports@1.8.11(typescript@6.0.3))(prettier@3.9.10)(tsdown@0.23.1(typescript@6.0.3))(typescript@6.0.3)(vite@8.3.4(@types/node@24.19.2)(esbuild@0.27.0))(vitest@5.0.4))(@alessiofrittoli/web-utils@1.17.0)':
+  '@alessiofrittoli/exception@3.5.0': {}
+
+  '@alessiofrittoli/exception@4.1.0': {}
+
+  '@alessiofrittoli/fetcher@1.1.0':
     dependencies:
       '@alessiofrittoli/abort-controller': 0.1.0
-      '@alessiofrittoli/exception': 3.2.0
+      '@alessiofrittoli/chain-functions': 2.7.0
+      '@alessiofrittoli/event-emitter': 1.7.0
+      '@alessiofrittoli/exception': 3.5.0
+      '@alessiofrittoli/node-scripts': 3.5.0(@alessiofrittoli/chain-functions@2.7.0)
+      '@alessiofrittoli/type-utils': 1.10.1(@alessiofrittoli/chain-functions@2.7.0)(@alessiofrittoli/node-scripts@3.5.0)
+      '@alessiofrittoli/url-utils': 3.7.1(@alessiofrittoli/chain-functions@2.7.0)(@alessiofrittoli/node-scripts@3.5.0)
+      '@alessiofrittoli/web-utils': 1.20.0(@alessiofrittoli/chain-functions@2.7.0)(@alessiofrittoli/node-scripts@3.5.0)
+
+  '@alessiofrittoli/math-utils@1.18.0(@alessiofrittoli/chain-functions@2.7.0)(@alessiofrittoli/node-scripts@3.5.0)':
+    dependencies:
+      '@alessiofrittoli/web-utils': 1.20.0(@alessiofrittoli/chain-functions@2.7.0)(@alessiofrittoli/node-scripts@3.5.0)
+    transitivePeerDependencies:
+      - '@alessiofrittoli/chain-functions'
+      - '@alessiofrittoli/node-scripts'
+
+  '@alessiofrittoli/math-utils@1.18.0(@alessiofrittoli/chain-functions@2.7.0)(@alessiofrittoli/node-scripts@4.1.0)':
+    dependencies:
+      '@alessiofrittoli/web-utils': 1.20.0(@alessiofrittoli/chain-functions@2.7.0)(@alessiofrittoli/node-scripts@4.1.0)
+    transitivePeerDependencies:
+      - '@alessiofrittoli/chain-functions'
+      - '@alessiofrittoli/node-scripts'
+
+  '@alessiofrittoli/math-utils@2.1.0(@alessiofrittoli/web-utils@2.3.0)':
+    dependencies:
+      '@alessiofrittoli/web-utils': 2.3.0(@alessiofrittoli/chain-functions@2.7.0)(@alessiofrittoli/node-scripts@4.1.0)
+
+  '@alessiofrittoli/node-scripts@3.5.0(@alessiofrittoli/chain-functions@2.7.0)':
+    dependencies:
+      '@alessiofrittoli/abort-controller': 0.1.0
+      '@alessiofrittoli/event-emitter': 1.7.0
+      '@alessiofrittoli/exception': 3.5.0
+      '@alessiofrittoli/web-utils': 2.3.0(@alessiofrittoli/chain-functions@2.7.0)(@alessiofrittoli/node-scripts@3.5.0)
+    transitivePeerDependencies:
+      - '@alessiofrittoli/chain-functions'
+
+  '@alessiofrittoli/node-scripts@4.1.0(@alessiofrittoli/abort-controller@0.1.0)(@alessiofrittoli/exception@4.1.0)(@alessiofrittoli/package-configs@1.6.0(oxlint@1.88.0)(prettier-plugin-sort-imports@1.8.11(typescript@6.0.3))(prettier@3.9.10)(tsdown@0.23.1(typescript@6.0.3))(typescript@6.0.3)(vite@8.3.4(@types/node@24.19.2)(esbuild@0.27.0))(vitest@5.0.4))(@alessiofrittoli/web-utils@2.3.0)':
+    dependencies:
+      '@alessiofrittoli/abort-controller': 0.1.0
+      '@alessiofrittoli/exception': 4.1.0
       '@alessiofrittoli/package-configs': 1.6.0(oxlint@1.88.0)(prettier-plugin-sort-imports@1.8.11(typescript@6.0.3))(prettier@3.9.10)(tsdown@0.23.1(typescript@6.0.3))(typescript@6.0.3)(vite@8.3.4(@types/node@24.19.2)(esbuild@0.27.0))(vitest@5.0.4)
-      '@alessiofrittoli/web-utils': 1.17.0(@alessiofrittoli/chain-functions@2.5.0)(@alessiofrittoli/node-scripts@4.1.0)
+      '@alessiofrittoli/web-utils': 2.3.0(@alessiofrittoli/chain-functions@2.7.0)(@alessiofrittoli/node-scripts@4.1.0)
 
   '@alessiofrittoli/package-configs@1.6.0(oxlint@1.88.0)(prettier-plugin-sort-imports@1.8.11(typescript@6.0.3))(prettier@3.9.10)(tsdown@0.23.1(typescript@6.0.3))(typescript@6.0.3)(vite@8.3.4(@types/node@24.19.2)(esbuild@0.27.0))(vitest@5.0.4)':
     dependencies:
@@ -1399,29 +1460,89 @@ snapshots:
       vite: 8.3.4(@types/node@24.19.2)(esbuild@0.27.0)
       vitest: 5.0.4(@types/node@24.19.2)(@vitest/coverage-v8@5.0.4)(vite@8.3.4(@types/node@24.19.2)(esbuild@0.27.0))
 
-  '@alessiofrittoli/type-utils@1.10.1(@alessiofrittoli/chain-functions@2.5.0)(@alessiofrittoli/node-scripts@4.1.0)':
+  '@alessiofrittoli/type-utils@1.10.1(@alessiofrittoli/chain-functions@2.7.0)(@alessiofrittoli/node-scripts@3.5.0)':
     dependencies:
-      '@alessiofrittoli/chain-functions': 2.5.0
-      '@alessiofrittoli/node-scripts': 4.1.0(@alessiofrittoli/abort-controller@0.1.0)(@alessiofrittoli/exception@3.2.0)(@alessiofrittoli/package-configs@1.6.0(oxlint@1.88.0)(prettier-plugin-sort-imports@1.8.11(typescript@6.0.3))(prettier@3.9.10)(tsdown@0.23.1(typescript@6.0.3))(typescript@6.0.3)(vite@8.3.4(@types/node@24.19.2)(esbuild@0.27.0))(vitest@5.0.4))(@alessiofrittoli/web-utils@1.17.0)
+      '@alessiofrittoli/chain-functions': 2.7.0
+      '@alessiofrittoli/node-scripts': 3.5.0(@alessiofrittoli/chain-functions@2.7.0)
 
-  '@alessiofrittoli/type-utils@2.0.0(@alessiofrittoli/chain-functions@2.5.0)(@alessiofrittoli/node-scripts@4.1.0)':
+  '@alessiofrittoli/type-utils@1.10.1(@alessiofrittoli/chain-functions@2.7.0)(@alessiofrittoli/node-scripts@4.1.0)':
     dependencies:
-      '@alessiofrittoli/chain-functions': 2.5.0
-      '@alessiofrittoli/node-scripts': 4.1.0(@alessiofrittoli/abort-controller@0.1.0)(@alessiofrittoli/exception@3.2.0)(@alessiofrittoli/package-configs@1.6.0(oxlint@1.88.0)(prettier-plugin-sort-imports@1.8.11(typescript@6.0.3))(prettier@3.9.10)(tsdown@0.23.1(typescript@6.0.3))(typescript@6.0.3)(vite@8.3.4(@types/node@24.19.2)(esbuild@0.27.0))(vitest@5.0.4))(@alessiofrittoli/web-utils@1.17.0)
+      '@alessiofrittoli/chain-functions': 2.7.0
+      '@alessiofrittoli/node-scripts': 4.1.0(@alessiofrittoli/abort-controller@0.1.0)(@alessiofrittoli/exception@4.1.0)(@alessiofrittoli/package-configs@1.6.0(oxlint@1.88.0)(prettier-plugin-sort-imports@1.8.11(typescript@6.0.3))(prettier@3.9.10)(tsdown@0.23.1(typescript@6.0.3))(typescript@6.0.3)(vite@8.3.4(@types/node@24.19.2)(esbuild@0.27.0))(vitest@5.0.4))(@alessiofrittoli/web-utils@2.3.0)
 
-  '@alessiofrittoli/url-utils@3.5.0(@alessiofrittoli/chain-functions@2.5.0)(@alessiofrittoli/node-scripts@4.1.0)':
+  '@alessiofrittoli/type-utils@2.0.0(@alessiofrittoli/chain-functions@2.7.0)(@alessiofrittoli/node-scripts@4.1.0)':
     dependencies:
-      '@alessiofrittoli/web-utils': 1.17.0(@alessiofrittoli/chain-functions@2.5.0)(@alessiofrittoli/node-scripts@4.1.0)
+      '@alessiofrittoli/chain-functions': 2.7.0
+      '@alessiofrittoli/node-scripts': 4.1.0(@alessiofrittoli/abort-controller@0.1.0)(@alessiofrittoli/exception@4.1.0)(@alessiofrittoli/package-configs@1.6.0(oxlint@1.88.0)(prettier-plugin-sort-imports@1.8.11(typescript@6.0.3))(prettier@3.9.10)(tsdown@0.23.1(typescript@6.0.3))(typescript@6.0.3)(vite@8.3.4(@types/node@24.19.2)(esbuild@0.27.0))(vitest@5.0.4))(@alessiofrittoli/web-utils@2.3.0)
+
+  '@alessiofrittoli/url-utils@3.7.1(@alessiofrittoli/chain-functions@2.7.0)(@alessiofrittoli/node-scripts@3.5.0)':
+    dependencies:
+      '@alessiofrittoli/web-utils': 1.20.0(@alessiofrittoli/chain-functions@2.7.0)(@alessiofrittoli/node-scripts@3.5.0)
     transitivePeerDependencies:
       - '@alessiofrittoli/chain-functions'
       - '@alessiofrittoli/node-scripts'
 
-  '@alessiofrittoli/web-utils@1.17.0(@alessiofrittoli/chain-functions@2.5.0)(@alessiofrittoli/node-scripts@4.1.0)':
+  '@alessiofrittoli/url-utils@3.7.1(@alessiofrittoli/chain-functions@2.7.0)(@alessiofrittoli/node-scripts@4.1.0)':
     dependencies:
-      '@alessiofrittoli/date-utils': 4.0.0(@alessiofrittoli/chain-functions@2.5.0)(@alessiofrittoli/node-scripts@4.1.0)
-      '@alessiofrittoli/math-utils': 1.16.0(@alessiofrittoli/chain-functions@2.5.0)(@alessiofrittoli/node-scripts@4.1.0)
-      '@alessiofrittoli/type-utils': 1.10.1(@alessiofrittoli/chain-functions@2.5.0)(@alessiofrittoli/node-scripts@4.1.0)
-      '@alessiofrittoli/url-utils': 3.5.0(@alessiofrittoli/chain-functions@2.5.0)(@alessiofrittoli/node-scripts@4.1.0)
+      '@alessiofrittoli/web-utils': 1.20.0(@alessiofrittoli/chain-functions@2.7.0)(@alessiofrittoli/node-scripts@4.1.0)
+    transitivePeerDependencies:
+      - '@alessiofrittoli/chain-functions'
+      - '@alessiofrittoli/node-scripts'
+
+  '@alessiofrittoli/url-utils@4.0.0(@alessiofrittoli/chain-functions@2.7.0)(@alessiofrittoli/node-scripts@3.5.0)':
+    dependencies:
+      '@alessiofrittoli/web-utils': 1.20.0(@alessiofrittoli/chain-functions@2.7.0)(@alessiofrittoli/node-scripts@3.5.0)
+    transitivePeerDependencies:
+      - '@alessiofrittoli/chain-functions'
+      - '@alessiofrittoli/node-scripts'
+
+  '@alessiofrittoli/url-utils@4.0.0(@alessiofrittoli/chain-functions@2.7.0)(@alessiofrittoli/node-scripts@4.1.0)':
+    dependencies:
+      '@alessiofrittoli/web-utils': 1.20.0(@alessiofrittoli/chain-functions@2.7.0)(@alessiofrittoli/node-scripts@4.1.0)
+    transitivePeerDependencies:
+      - '@alessiofrittoli/chain-functions'
+      - '@alessiofrittoli/node-scripts'
+
+  '@alessiofrittoli/web-utils@1.20.0(@alessiofrittoli/chain-functions@2.7.0)(@alessiofrittoli/node-scripts@3.5.0)':
+    dependencies:
+      '@alessiofrittoli/date-utils': 4.1.0(@alessiofrittoli/chain-functions@2.7.0)(@alessiofrittoli/node-scripts@4.1.0)
+      '@alessiofrittoli/math-utils': 1.18.0(@alessiofrittoli/chain-functions@2.7.0)(@alessiofrittoli/node-scripts@4.1.0)
+      '@alessiofrittoli/type-utils': 1.10.1(@alessiofrittoli/chain-functions@2.7.0)(@alessiofrittoli/node-scripts@3.5.0)
+      '@alessiofrittoli/url-utils': 3.7.1(@alessiofrittoli/chain-functions@2.7.0)(@alessiofrittoli/node-scripts@4.1.0)
+    transitivePeerDependencies:
+      - '@alessiofrittoli/chain-functions'
+      - '@alessiofrittoli/node-scripts'
+
+  '@alessiofrittoli/web-utils@1.20.0(@alessiofrittoli/chain-functions@2.7.0)(@alessiofrittoli/node-scripts@4.1.0)':
+    dependencies:
+      '@alessiofrittoli/date-utils': 4.1.0(@alessiofrittoli/chain-functions@2.7.0)(@alessiofrittoli/node-scripts@4.1.0)
+      '@alessiofrittoli/math-utils': 1.18.0(@alessiofrittoli/chain-functions@2.7.0)(@alessiofrittoli/node-scripts@4.1.0)
+      '@alessiofrittoli/type-utils': 1.10.1(@alessiofrittoli/chain-functions@2.7.0)(@alessiofrittoli/node-scripts@4.1.0)
+      '@alessiofrittoli/url-utils': 3.7.1(@alessiofrittoli/chain-functions@2.7.0)(@alessiofrittoli/node-scripts@4.1.0)
+    transitivePeerDependencies:
+      - '@alessiofrittoli/chain-functions'
+      - '@alessiofrittoli/node-scripts'
+
+  '@alessiofrittoli/web-utils@2.3.0(@alessiofrittoli/chain-functions@2.7.0)(@alessiofrittoli/node-scripts@3.5.0)':
+    dependencies:
+      '@alessiofrittoli/date-utils': 4.1.0(@alessiofrittoli/chain-functions@2.7.0)(@alessiofrittoli/node-scripts@3.5.0)
+      '@alessiofrittoli/exception': 3.5.0
+      '@alessiofrittoli/fetcher': 1.1.0
+      '@alessiofrittoli/math-utils': 2.1.0(@alessiofrittoli/web-utils@2.3.0)
+      '@alessiofrittoli/type-utils': 1.10.1(@alessiofrittoli/chain-functions@2.7.0)(@alessiofrittoli/node-scripts@3.5.0)
+      '@alessiofrittoli/url-utils': 4.0.0(@alessiofrittoli/chain-functions@2.7.0)(@alessiofrittoli/node-scripts@3.5.0)
+    transitivePeerDependencies:
+      - '@alessiofrittoli/chain-functions'
+      - '@alessiofrittoli/node-scripts'
+
+  '@alessiofrittoli/web-utils@2.3.0(@alessiofrittoli/chain-functions@2.7.0)(@alessiofrittoli/node-scripts@4.1.0)':
+    dependencies:
+      '@alessiofrittoli/date-utils': 4.1.0(@alessiofrittoli/chain-functions@2.7.0)(@alessiofrittoli/node-scripts@4.1.0)
+      '@alessiofrittoli/exception': 3.5.0
+      '@alessiofrittoli/fetcher': 1.1.0
+      '@alessiofrittoli/math-utils': 2.1.0(@alessiofrittoli/web-utils@2.3.0)
+      '@alessiofrittoli/type-utils': 1.10.1(@alessiofrittoli/chain-functions@2.7.0)(@alessiofrittoli/node-scripts@4.1.0)
+      '@alessiofrittoli/url-utils': 4.0.0(@alessiofrittoli/chain-functions@2.7.0)(@alessiofrittoli/node-scripts@4.1.0)
     transitivePeerDependencies:
       - '@alessiofrittoli/chain-functions'
       - '@alessiofrittoli/node-scripts'
@@ -1784,9 +1905,11 @@ snapshots:
 
   corser@2.0.1: {}
 
-  debug@4.4.1:
+  debug@4.4.1(supports-color@10.2.2):
     dependencies:
       ms: 2.1.3
+    optionalDependencies:
+      supports-color: 10.2.2
 
   defu@6.1.7: {}
 
@@ -1858,7 +1981,9 @@ snapshots:
     optionalDependencies:
       picomatch: 4.0.7
 
-  follow-redirects@1.15.9: {}
+  follow-redirects@1.16.1(debug@4.4.1(supports-color@10.2.2)):
+    optionalDependencies:
+      debug: 4.4.1(supports-color@10.2.2)
 
   fsevents@2.3.3:
     optional: true
@@ -1909,26 +2034,26 @@ snapshots:
     dependencies:
       whatwg-encoding: 2.0.0
 
-  http-proxy@1.18.1:
+  http-proxy@1.18.1(debug@4.4.1(supports-color@10.2.2)):
     dependencies:
       eventemitter3: 4.0.7
-      follow-redirects: 1.15.9
+      follow-redirects: 1.16.1(debug@4.4.1(supports-color@10.2.2))
       requires-port: 1.0.0
     transitivePeerDependencies:
       - debug
 
-  http-server@14.1.1:
+  http-server@14.1.1(debug@4.4.1(supports-color@10.2.2))(supports-color@10.2.2):
     dependencies:
       basic-auth: 2.0.1
       chalk: 4.1.2
       corser: 2.0.1
       he: 1.2.0
       html-encoding-sniffer: 3.0.0
-      http-proxy: 1.18.1
+      http-proxy: 1.18.1(debug@4.4.1(supports-color@10.2.2))
       mime: 1.6.0
       minimist: 1.2.8
       opener: 1.5.2
-      portfinder: 1.0.37
+      portfinder: 1.0.37(supports-color@10.2.2)
       secure-compare: 3.0.1
       union: 0.5.0
       url-join: 4.0.1
@@ -2045,10 +2170,10 @@ snapshots:
 
   picomatch@4.0.7: {}
 
-  portfinder@1.0.37:
+  portfinder@1.0.37(supports-color@10.2.2):
     dependencies:
       async: 3.2.6
-      debug: 4.4.1
+      debug: 4.4.1(supports-color@10.2.2)
     transitivePeerDependencies:
       - supports-color
 
