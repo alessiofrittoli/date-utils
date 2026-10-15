@@ -30,9 +30,13 @@
 		"type": "git",
 		"url": "git+https://github.com/alessiofrittoli/date-utils.git"
 	},
-	"main": "./dist/index.js",
+	"engines": {
+		"node": ">=24.15.0",
+		"pnpm": ">=11.27.1"
+	},
+	"main": "./dist/index.cjs",
 	"module": "./dist/index.mjs",
-	"types": "./dist/index.d.ts",
+	"types": "./dist/index.d.mts",
 	"files": [
 		"dist"
 	],
@@ -43,68 +47,18 @@
 				"default": "./dist/index.mjs"
 			},
 			"require": {
-				"types": "./dist/index.d.ts",
-				"default": "./dist/index.js"
+				"types": "./dist/index.d.cts",
+				"default": "./dist/index.cjs"
 			}
 		},
-		"./format": {
+		"./*": {
 			"import": {
-				"types": "./dist/format/index.d.mts",
-				"default": "./dist/format/index.mjs"
+				"types": "./dist/*/index.d.mts",
+				"default": "./dist/*/index.mjs"
 			},
 			"require": {
-				"types": "./dist/format/index.d.ts",
-				"default": "./dist/format/index.js"
-			}
-		},
-		"./timezones": {
-			"import": {
-				"types": "./dist/timezones/index.d.mts",
-				"default": "./dist/timezones/index.mjs"
-			},
-			"require": {
-				"types": "./dist/timezones/index.d.ts",
-				"default": "./dist/timezones/index.js"
-			}
-		},
-		"./timezones/identifiers": {
-			"import": {
-				"types": "./dist/timezones/identifiers.d.mts",
-				"default": "./dist/timezones/identifiers.mjs"
-			},
-			"require": {
-				"types": "./dist/timezones/identifiers.d.ts",
-				"default": "./dist/timezones/identifiers.js"
-			}
-		},
-		"./timezones/types": {
-			"import": {
-				"types": "./dist/timezones/types.d.mts",
-				"default": "./dist/timezones/types.mjs"
-			},
-			"require": {
-				"types": "./dist/timezones/types.d.ts",
-				"default": "./dist/timezones/types.js"
-			}
-		},
-		"./common": {
-			"import": {
-				"types": "./dist/common.d.mts",
-				"default": "./dist/common.mjs"
-			},
-			"require": {
-				"types": "./dist/common.d.ts",
-				"default": "./dist/common.js"
-			}
-		},
-		"./utils": {
-			"import": {
-				"types": "./dist/utils.d.mts",
-				"default": "./dist/utils.mjs"
-			},
-			"require": {
-				"types": "./dist/utils.d.ts",
-				"default": "./dist/utils.js"
+				"types": "./dist/*/index.d.cts",
+				"default": "./dist/*/index.cjs"
 			}
 		}
 	},
