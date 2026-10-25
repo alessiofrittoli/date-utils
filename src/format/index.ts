@@ -29,7 +29,7 @@ export type SecondsToUnitReturn<TSkipWeeks extends boolean = false> = {
  *
  * @see [StackOverflow thread](https://stackoverflow.com/questions/8211744/convert-time-interval-given-in-seconds-into-more-human-readable-form#answer-8211778)
  *
- * @param	time	The number of seconds to be processed.
+ * @param	_time	The number of seconds to be processed.
  * @returns			An object containing the amount of time for each unit.
  */
 export const secondsToUnit = <TSkipWeeks extends boolean = false>(
@@ -37,7 +37,7 @@ export const secondsToUnit = <TSkipWeeks extends boolean = false>(
 	skipWeeks: TSkipWeeks = false as TSkipWeeks,
 ): SecondsToUnitReturn<TSkipWeeks> => {
 	const isPast = time < 0
-	if (isPast) time = time * -1
+	const _time = isPast ? time * -1 : time
 
 	const yearInSeconds = InSeconds._1Year,
 		monthInSeconds = InSeconds._1Month,
@@ -45,20 +45,20 @@ export const secondsToUnit = <TSkipWeeks extends boolean = false>(
 		dayInSeconds = InSeconds._1Day,
 		hourInSeconds = InSeconds._1Hour
 
-	const years = Math.floor(time / yearInSeconds),
-		months = Math.floor((time % yearInSeconds) / monthInSeconds),
-		weeks = skipWeeks ? null : Math.floor(((time % yearInSeconds) % monthInSeconds) / weekInSeconds),
+	const years = Math.floor(_time / yearInSeconds),
+		months = Math.floor((_time % yearInSeconds) / monthInSeconds),
+		weeks = skipWeeks ? null : Math.floor(((_time % yearInSeconds) % monthInSeconds) / weekInSeconds),
 		days = skipWeeks
-			? Math.floor(((time % yearInSeconds) % monthInSeconds) / dayInSeconds)
-			: Math.floor((((time % yearInSeconds) % monthInSeconds) % weekInSeconds) / dayInSeconds),
-		hours = Math.floor(((time % yearInSeconds) % dayInSeconds) / hourInSeconds),
-		minutes = Math.floor((((time % yearInSeconds) % dayInSeconds) % hourInSeconds) / 60),
-		seconds = Math.floor((((time % yearInSeconds) % dayInSeconds) % hourInSeconds) % 60),
+			? Math.floor(((_time % yearInSeconds) % monthInSeconds) / dayInSeconds)
+			: Math.floor((((_time % yearInSeconds) % monthInSeconds) % weekInSeconds) / dayInSeconds),
+		hours = Math.floor(((_time % yearInSeconds) % dayInSeconds) / hourInSeconds),
+		minutes = Math.floor((((_time % yearInSeconds) % dayInSeconds) % hourInSeconds) / 60),
+		seconds = Math.floor((((_time % yearInSeconds) % dayInSeconds) % hourInSeconds) % 60),
 		milliseconds = Math.floor(
-			(((((time % yearInSeconds) % dayInSeconds) % hourInSeconds) % 60) * 1000) % 1000,
+			(((((_time % yearInSeconds) % dayInSeconds) % hourInSeconds) % 60) * 1000) % 1000,
 		),
 		microseconds = Math.floor(
-			(((((time % yearInSeconds) % dayInSeconds) % hourInSeconds) % 60) * 1_000_000) % 1000,
+			(((((_time % yearInSeconds) % dayInSeconds) % hourInSeconds) % 60) * 1_000_000) % 1000,
 		)
 
 	if (isPast) {

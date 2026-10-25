@@ -36,8 +36,8 @@ export const isValidDate = (d: unknown): d is Date => d instanceof Date && !isNa
 /**
  * A compare function to use as the Array.prototype.sort() method.
  *
- * @param	date1	The oldest date to compare.
- * @param	date2	The newest date to compare.
+ * @param	_date1	The oldest date to compare.
+ * @param	_date2	The newest date to compare.
  * @param	method	( Optional ) The sorting method. Default: 'DESC'.
  * 					- 'ASC' from oldest to newest.
  * 					- 'DESC' from newest to oldest.
@@ -51,11 +51,11 @@ export const sortByDate = (
 	date2: string | number | Date,
 	method: 'ASC' | 'DESC' = 'DESC',
 ): number => {
-	date1 = new Date(date1)
-	date2 = new Date(date2)
+	const _date1 = new Date(date1)
+	const _date2 = new Date(date2)
 
-	const _dt1 = date1.getTime(),
-		_dt2 = date2.getTime()
+	const _dt1 = _date1.getTime(),
+		_dt2 = _date2.getTime()
 
 	if (isNaN(_dt1) || isNaN(_dt2)) return 0
 
