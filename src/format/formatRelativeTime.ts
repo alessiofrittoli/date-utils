@@ -16,7 +16,7 @@ const DIVISIONS: Division[] = [
 /**
  * Relative date format.
  *
- * @param	date	The Date to format.
+ * @param	_date	The Date to format.
  * @param	locales	The Intl.RelativeTimeFormat locale to use. Defaults to user locale.
  *
  * @link	[Relative Date Internationalization In JavaScript](https://blog.webdevsimplified.com/2020-07/relative-time-format)
@@ -41,11 +41,11 @@ export const formatRelativeTime = (
 		numeric: 'auto',
 	},
 ): string | undefined => {
-	date = new Date(date)
+	const _date = new Date(date)
 
 	const formatter = new Intl.RelativeTimeFormat(locales, options)
 
-	let duration = (date.getTime() - new Date().getTime()) / 1000
+	let duration = (_date.getTime() - new Date().getTime()) / 1000
 
 	for (let i = 0; i < DIVISIONS.length; i++) {
 		const division = DIVISIONS[i]
